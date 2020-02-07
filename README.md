@@ -31,3 +31,42 @@ Frontend: https://irutingabo.github.io/Papel/ui
 Pivotal Tracker: https://www.pivotaltracker.com/n/projects/2432149
     
 Repository: https://github.com/Irutingabo/Papel
+
+
+## Current Phase
+
+As a user, I have a page(s) view where I can
+
+- sign-up 
+- sign-in 
+- User (client) can create an account.  
+- User (client) can view account transaction history.  
+- User (client) can view a specific account transaction. 
+As an staff, I have a page(s) view where I can
+
+- Staff (cashier) can debit a user (client) account.  
+- Staff (cashier) can credit a user (client) account.  
+
+As an admin or staff, I have a page(s) view where I can
+
+- Admin/staff can view all user accounts.  
+- Admin/staff can view a specific user account.  
+- Admin/staff can delete a specific user account. 
+
+As an admin, I have a page(s) view where I can 
+- Admin can activate or deactivate an account.  
+- Admin can create staff and admin user accounts. 
+
+
+
+## Next Phase
+
+As a user, I can
+- Endpoints
+
+## Stack
+### Frontend
+- HTML + CSS + JS
+
+## Screenshots
+    To be posted as soon as UI is Done
