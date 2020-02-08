@@ -4,10 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Papel - New Bank Account</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 
 <body>
+    <header>
+        <div class="title"><a href="#">Papel</a></div>
+        <div class="navg">
+            <div class="bkAccount"> <a href="./bkAccProfile.html">Bank account</a> </div>
+        </div>
+        <div class="account">
+            <div class="accountDrop">
+                <button id="accountDropBtn" class="accountDropBtn">User name</button>
+                <div class="accountElements">
+                    <a class="userBtn" href="./signin.html" id="userBtn">Enter as Staff</a>
+                    <a class="signoutBtn" href="./signin.html" id="signoutBtn">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Create bank account form -->
+        <div class="container">
+            <div class="signFrame">
+                <div class="appTitle">
+                    <a href="#">Papel</a>
+                </div>
+                <div class="signTitle">Create Bank Account</div>
+                <div class="subTitle">to start using Papel</div>
+                <form class="formEntry" action="./signin.html">
 
+
+
+                    <fieldset>
+                        <input type="text" placeholder="User name" id="uNameId">
+
+                        <br>
+
+                        <input type="text" placeholder="First Name" id="fNameId" required>
+                        <input type="text" placeholder="Last Name" id="lNameId" required>
+                        <br>
+
+                        <input type="email" placeholder="Email" id="inputEmail" required>
+                    </fieldset>
+                    <fieldset>
+                        Role:
+                        <br>
+                        <input type="radio" name="accType" id="savingsType" checked required>Savings <br>
+                        <input type="radio" name="accType" id="currentType">Current <br>
+                        <input type="radio" name="accType" id="loanType">Loan <br>
+                    </fieldset>
+
+                    <input type="submit" value="Create Account" id="createAcc" class="createAcc submitBtn">
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="../../scripts/script.js"></script>
 </body>
 
 </html>
