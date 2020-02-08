@@ -3,11 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Papel - Transactions</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User - Transactions</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 
 <body>
+    <header>
+        <div class="title"> <a href="./user.html">Papel</a> </div>
 
+        <div class="account">
+            <div class="accountDrop">
+                <button id="accountDropBtn" class="accountDropBtn">User name</button>
+                <div class="accountElements">
+                    <a class="userBtn" href="./signin.html" id="userBtn">Enter as Staff</a>
+                    <a class="signoutBtn" href="./signin.html" id="signoutBtn">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <!-- Transactions history -->
+
+
+        <div class="gridContainer ">
+            <div class="leftSide ">
+                <div class="card ">
+                    <div class="titleHeader ">
+                        <p>Full Names</p>
+                        <h5>username@email.com</h5>
+                        <div class="headerCard ">
+                            <img src="../../assets/man.png ">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="menuVert ">
+                    <div class="menuName ">Quick links</div>
+                    <div class="navM ">
+                        <div><a href="./user.html">Bank accounts</a></div>
+                        <div active><a href="./accTransactions.html">Transactions history</a></div>
+                    </div>
+                </div>
+                <div class="menuVert ">
+                    <div class="menuName ">Owner's Settings</div>
+                    <div class="navM ">
+                        <div><a href="# ">Reset password</a></div>
+                        <div><a href="# ">Allow notification</a></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="rightSide ">
+                <div class="pageName ">Account transactions history</div>
+                <div class="filterRec">
+                    <div class="searchRec">
+                        <input type="text" name="inSearchRec" id="inSearchRec" placeholder="Search ID, Account, Reason or Type of Transaction">
+                    </div>
+                </div>
+                <div class="transactions ">
+
+
+                    <table class="transactionTable ">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Done</th>
+                                <th>Account</th>
+                                <th>Reason</th>
+                                <th>Type</th>
+                                <th>Current Balance ($)</th>
+                                <th>Amount ($)</th>
+                                <th>New Balance ($)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3241543</td>
+                                <td>9:00 - 25th Jan, 2020</td>
+                                <td>4562 8654 8952 2458</td>
+                                <td>For saving</td>
+                                <td>Credit</td>
+                                <td>200</td>
+                                <td>5000</td>
+                                <td>5200</td>
+                            </tr>
+                            <tr>
+                                <td>3241543</td>
+                                <td>9:00 - 25th Jan, 2020</td>
+                                <td>4562 8654 8952 2458</td>
+                                <td>For saving</td>
+                                <td>Credit</td>
+                                <td>200</td>
+                                <td>5000</td>
+                                <td>5200</td>
+                            </tr>
+                            <tr>
+                                <td>3241543</td>
+                                <td>9:00 - 25th Jan, 2020</td>
+                                <td>4562 8654 8952 2458</td>
+                                <td>For saving</td>
+                                <td>Credit</td>
+                                <td>200</td>
+                                <td>5000</td>
+                                <td>5200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <script src="../../scripts/script.js"></script>
 </body>
 
 </html>
