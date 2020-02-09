@@ -98,6 +98,11 @@
     grid-template-columns: 1fr auto;
 }
 
+.rightSide {
+    padding-top: 5px;
+    width: 100%;
+}
+
 .featureTitle {
     padding: 18px;
 }
@@ -119,6 +124,49 @@
     font-weight: 500;
     font-size: 25px;
     margin: 2 24px;
+}
+
+.userStatus {
+    margin: 20px 0 0 -20px;
+}
+
+.statu {
+    color: #16C39A;
+    font-size: 12px;
+}
+
+.dactiv {
+    margin: 0 0 0 auto;
+}
+
+.deactBtn {
+    border: 1px solid#e42e0d;
+    color: #e42e0d;
+    padding: 8px;
+    outline: none;
+    background: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.deactBtn:hover {
+    background: #e42e0d;
+    color: #fff;
+}
+
+.actBtn {
+    padding: 8px;
+    outline: none;
+    border: 1px solid#16C39A;
+    color: #16C39A;
+    background: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.actBtn:hover {
+    background: #16C39A;
+    color: #fff;
 }
 
 .rightUpper>div {
