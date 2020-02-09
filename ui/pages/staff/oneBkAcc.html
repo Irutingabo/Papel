@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="addTra">
-                        <button id="newTranC" class="newTraBtn ">Credit</button>
+                        <button id="creditAccBtn" class="newTraBtn ">Credit</button>
                         <button id="newTranD" class="newTraBtn ">Debit</button>
                         <button id="delTran" class="delTran ">Delete</button>
                     </div>
@@ -209,9 +209,49 @@
 
     </div>
 
+    <div id="creditBtn" class="creditBtnMod">
+
+        <!-- Modal content -->
+        <div class="openedMessage">
+            <span id="closeCred" class="close">&times;</span>
+            <h3>Bank account deletion</h3>
+
+            <div class="signFrame">
+                <div class="appTitle">
+                    <a href="#">Papel</a>
+                </div>
+                <div class="signTitle">Are you sure you want to credit this account?</div>
+                <div class="subTitle">Enter amount to credit</div>
+                <form class="formEntry" action="./oneBkAcc.html">
+                    <fieldset>
+                        <input type="Number" placeholder="Amount" id="creditedAmo" required>
+                        <input type="text" id="creditReason" placeholder="Reason" required>
+                    </fieldset>
+                    <input type="submit" value="Credit" class="submitBtn" id="creditBtnGo">
+                </form>
+            </div>
+
+            <div class="message"> <span>Close</span> to stop credit </div>
+
+        </div>
+
+    </div>
+
 
     <script src="../../scripts/script.js"></script>
     <script>
+        let creditAccBtn = document.getElementById("creditAccBtn");
+        let closeCred = document.getElementById("closeCred");
+        let creditBtn = document.getElementById("creditBtn");
+
+
+        creditAccBtn.onclick = () => {
+            creditBtn.style.display = "block";
+        }
+        closeCred.onclick = () => creditBtn.style.display = "none";
+
+
+
         let delTran = document.getElementById("delTran");
         let closeAct = document.getElementById("closeact");
         let deleteBtn = document.getElementById("deleteBtn");
@@ -224,9 +264,13 @@
         }
         closeAct.onclick = () => deleteBtn.style.display = "none";
 
+
+
+
         window.onclick = event => {
-            if (event.target == deleteBtn) {
+            if (event.target == deleteBtn || event.target == creditBtn) {
                 deleteBtn.style.display = "none";
+                creditBtn.style.display = "none";
             }
         }
     </script>
