@@ -95,7 +95,7 @@
 
                     <div class="addTra">
                         <button id="creditAccBtn" class="newTraBtn ">Credit</button>
-                        <button id="newTranD" class="newTraBtn ">Debit</button>
+                        <button id="debitAccBtn" class="newTraBtn ">Debit</button>
                         <button id="delTran" class="delTran ">Delete</button>
                     </div>
                 </div>
@@ -214,7 +214,7 @@
         <!-- Modal content -->
         <div class="openedMessage">
             <span id="closeCred" class="close">&times;</span>
-            <h3>Bank account deletion</h3>
+            <h3>Bank account credit</h3>
 
             <div class="signFrame">
                 <div class="appTitle">
@@ -237,9 +237,47 @@
 
     </div>
 
+    <div id="debitBtn" class="debitBtnMod">
+
+        <!-- Modal content -->
+        <div class="openedMessage">
+            <span id="closedeb" class="close">&times;</span>
+            <h3>Bank account debit</h3>
+
+            <div class="signFrame">
+                <div class="appTitle">
+                    <a href="#">Papel</a>
+                </div>
+                <div class="signTitle">Are you sure you want to debit this account?</div>
+                <div class="subTitle">Enter amount to debit</div>
+                <form class="formEntry" action="./oneBkAcc.html">
+                    <fieldset>
+                        <input type="Number" placeholder="Amount" id="debitedAmo" required>
+                        <input type="text" id="debitReason" placeholder="Reason" required>
+                    </fieldset>
+                    <input type="submit" value="debit" class="submitBtn" id="debitBtnGo">
+                </form>
+            </div>
+
+            <div class="message"> <span>Close</span> to stop debit </div>
+
+        </div>
+
+    </div>
+
 
     <script src="../../scripts/script.js"></script>
     <script>
+        let debitAccBtn = document.getElementById("debitAccBtn");
+        let closedeb = document.getElementById("closedeb");
+        let debitBtn = document.getElementById("debitBtn");
+
+
+        debitAccBtn.onclick = () => {
+            debitBtn.style.display = "block";
+        }
+        closedeb.onclick = () => debitBtn.style.display = "none";
+
         let creditAccBtn = document.getElementById("creditAccBtn");
         let closeCred = document.getElementById("closeCred");
         let creditBtn = document.getElementById("creditBtn");
@@ -249,7 +287,6 @@
             creditBtn.style.display = "block";
         }
         closeCred.onclick = () => creditBtn.style.display = "none";
-
 
 
         let delTran = document.getElementById("delTran");
@@ -268,9 +305,10 @@
 
 
         window.onclick = event => {
-            if (event.target == deleteBtn || event.target == creditBtn) {
+            if (event.target == deleteBtn || event.target == creditBtn || event.target == debitBtn) {
                 deleteBtn.style.display = "none";
                 creditBtn.style.display = "none";
+                debitBtn.style.display = "none";
             }
         }
     </script>
