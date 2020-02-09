@@ -64,7 +64,12 @@
             </div>
             <div class="rightSide ">
                 <div class="pageTitle">
-                    <div class="pageName ">Bank Account</div>
+                    <div class="userNme">
+                        <div class="pageName ">Bank account</div>
+                    </div>
+                    <div class="userStatus">
+                        <div id="userStatu" class="statu">(Active)</div>
+                    </div>
 
                 </div>
 
@@ -173,7 +178,58 @@
         </div>
     </main>
 
+    <!-- Modal -->
+    <div id="deleteBtn" class="deleteBtnMod">
+
+        <!-- Modal content -->
+        <div class="openedMessage">
+            <span id="closeact" class="close">&times;</span>
+            <h3>Bank account deletion</h3>
+
+            <div class="cardPost ">
+                <a href="# ">
+                    <div class="cardTexts ">
+                        <div class="cardTitle "> <a href="# ">User name</a></div>
+                        <div class="cardDesc "> <a href="# ">4568 5557 5754 7515</a></div>
+                        <div class="cardMeta ">
+                            <ul>
+                                <li> <a>Status: <span>Active</span>  </a></li>
+                                <li> <a>Type: <span>Savings</span>  </a></li>
+                                <li> <a>Transactions: <span>10</span>  </a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="message">This Bank account has been <span>Deleted</span> </div>
+
+        </div>
+
+    </div>
+
+
     <script src="../../scripts/script.js"></script>
+    <script>
+        let delTran = document.getElementById("delTran");
+        let closeAct = document.getElementById("closeact");
+        let deleteBtn = document.getElementById("deleteBtn");
+        let status = document.getElementsByClassName('statu')[0]
+
+        delTran.onclick = () => {
+            deleteBtn.style.display = "block";
+            status.style.color = "#e42e0d"
+            status.innerHTML = "(Deleted)"
+        }
+        closeAct.onclick = () => deleteBtn.style.display = "none";
+
+        window.onclick = event => {
+            if (event.target == deleteBtn) {
+                deleteBtn.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>
