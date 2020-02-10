@@ -1,0 +1,372 @@
+/* Left */
+
+.leftSide {
+    width: 280px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, .35);
+    display: grid;
+    justify-items: stretch;
+    align-self: start;
+    position: relative;
+    height: auto;
+}
+
+
+/*card*/
+
+.titleHeader {
+    padding-top: 40px;
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+}
+
+.titleHeader>h5 {
+    color: rgba(255, 255, 255, .5);
+    margin-top: 8px;
+}
+
+.card {
+    background-color: #0B6623;
+}
+
+.headerCard {}
+
+.headerCard img {
+    padding: 4px;
+    -webkit-transform: translateY(50%);
+    transform: translateY(50%);
+    background-color: #fff;
+    border-radius: 50%;
+    width: 72px;
+    height: 72px;
+    margin: 0;
+}
+
+.menuName {
+    height: 40px;
+    padding: 0 30px 0 24px;
+}
+
+.menuVert {
+    background-color: #fff;
+    padding: 1rem;
+    border-bottom: 1px dotted #0B6623;
+}
+
+.navM {
+    display: grid;
+    justify-items: stretch;
+}
+
+.navM>div {
+    display: grid;
+    height: 40px;
+    line-height: 2.5;
+    margin-right: 18px;
+    align-items: center;
+    font-weight: bold;
+}
+
+.navM>div>a {
+    text-decoration: none;
+    color: #0B6623;
+    padding-left: 36px;
+}
+
+.navM>div :hover {
+    border-radius: 0 20px 20px 0;
+    background: #E6E6E6;
+}
+
+.navM>div :active {
+    border-radius: 0 20px 20px 0;
+    background: #0B6623;
+    color: #fff;
+}
+
+
+/*end card*/
+
+
+/* End of Left */
+
+
+/* Start of Right */
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+.featureTitle {
+    padding: 18px;
+}
+
+.rightUpper {
+    display: grid;
+    padding: 24px;
+    grid-gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.pageTitle {
+    display: flex;
+    margin: 2px 24px;
+}
+
+.pageName {
+    color: #0B6623;
+    font-weight: 500;
+    font-size: 25px;
+    margin: 2 24px;
+}
+
+.rightUpper>div {
+    text-align: center;
+    padding: 5px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 3px rgba(222, 222, 222, 0.5);
+    border-radius: 25px;
+}
+
+.featureSubTitle {
+    display: flex;
+    margin: 48px 24px 0;
+}
+
+.featureSubTitle>h3 {
+    padding-left: 40px;
+    margin-top: 10px;
+    color: #0B6623;
+}
+
+.newAccBtn {
+    margin: 0 0 0 auto;
+    outline: none;
+    border: 1px solid #0b6623;
+    padding: 0 10px;
+    color: #0b6623;
+    background: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.newAccBtn:hover {
+    color: #fff;
+    background-color: #0b6623;
+}
+
+.viewAll {
+    margin: 0 0 0 auto;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #0b6623;
+    color: #0b6623;
+    background: none;
+    cursor: pointer;
+}
+
+.viewAll:hover {
+    color: #2CE1FF;
+    border-bottom: 1px solid #2CE1FF;
+}
+
+.rightContentOneTran {
+    display: flex;
+    margin: 8px 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightContentOneTran>div {
+    padding: 8px;
+    min-width: 300px;
+}
+
+.addTra {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.balanceAmt {
+    margin: 24px;
+    border-bottom: 1px solid #0b6623;
+}
+
+.newTraBtn {
+    margin: 10px 0 0 30%;
+    outline: none;
+    padding: 5px;
+    border: 1px solid #0b6623;
+    color: #0b6623;
+    background: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.newTraBtn:hover {
+    color: #fff;
+    background-color: #0b6623;
+}
+
+.delTran {
+    margin: 10px 0 0 30%;
+    outline: none;
+    padding: 5px;
+    border: 1px solid #e42e0d;
+    color: #e42e0d;
+    background: none;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.delTran:hover {
+    color: #fff;
+    background-color: #e42e0d;
+}
+
+.rightContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 1.5em;
+    grid-auto-rows: minmax(80px auto);
+    margin: 0 15px;
+}
+
+.rightContent>div {
+    padding: 8px;
+    min-width: 300px;
+}
+
+.transactions {
+    background: #fff;
+    margin: 15px;
+}
+
+.filterRec {
+    display: flex;
+    margin: 0 24px;
+}
+
+.searchRec {
+    margin: 0 0 0 auto;
+    font-size: 12px;
+}
+
+.searchRec input {
+    outline: none;
+    border: none;
+    clear: both;
+    color: #3C3F43;
+    padding: 10px 10px 10px 20px;
+    width: 315px;
+    border-radius: 25px;
+}
+
+.transactionTable {
+    border-collapse: collapse;
+    font-size: 0.9em;
+    min-width: 400px;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.transactionTable thead tr {
+    background-color: #0B6623;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.transactionTable th,
+.transactionTable td {
+    padding: 12px 15px;
+}
+
+.transactionTable tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.transactionTable tbody tr:nth-of-type(even) {
+    background-color: #F8FAFB;
+}
+
+.transactionTable tbody tr:last-of-type {
+    border-bottom: 2px solid #0B6623;
+}
+
+.transactionTable tbody tr:hover {
+    color: #0B6623;
+}
+
+.cardPost {
+    display: grid;
+    grid-template-columns: 13px auto;
+    background: linear-gradient(170deg, #2E8B57, #0B6623);
+    padding: 15px;
+    margin-top: 15px;
+    color: #fff;
+    border-radius: 13px;
+}
+
+.cardPost:hover {
+    opacity: 0.54;
+}
+
+.cardTexts {
+    margin-left: 10px;
+    display: grid;
+    align-items: center;
+    text-decoration: none;
+}
+
+.cardTitle>a {
+    color: #2CE1FF;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.cardDesc>a {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5;
+    padding-left: 15px;
+    text-decoration: none;
+}
+
+.cardMeta>ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+
+.cardMeta>ul>li,
+.cardMeta>ul>li>a {
+    margin-right: 15px;
+    color: rgba(236, 236, 236, 0.541);
+}
+
+.cardMeta>ul>li>a {
+    text-decoration: none;
+}
+
+.cardMeta>ul>li>span {
+    color: #2CE1FF;
+    font-weight: bold;
+}
+
+.cardMeta>ul>li>a>span {
+    color: #2CE1FF;
+    font-weight: bold;
+}
+
+.cardMeta>ul>li:first-child {
+    list-style-type: none;
+}
