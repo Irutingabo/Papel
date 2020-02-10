@@ -17,14 +17,14 @@
                     <a href="# ">Bank accounts</a>
                 </div>
                 <div class="menu ">
-                    <a href="./signin.html ">Sign Out</a>
+                    <a href="../user/signin.html ">Sign Out</a>
                 </div>
             </div>
             <div class="accountDrop ">
                 <button id="accountDropBtn " class="accountDropBtn ">Admin name</button>
                 <div class="accountElements ">
-                    <a class="userBtn " href="./signin.html " id="userBtn ">Enter as Staff</a>
-                    <a class="signoutBtn " href="./signin.html " id="signoutBtn ">Sign Out</a>
+                    <a class="userBtn " href="../staff/staff.html " id="userBtn ">Enter as Staff</a>
+                    <a class="signoutBtn " href="../user/signin.html " id="signoutBtn ">Sign Out</a>
                 </div>
             </div>
         </div>
@@ -47,17 +47,16 @@
             <div class="menuVert ">
                 <div class="menuName ">Categories</div>
                 <div class="navM ">
-                    <div><a href="./allBkAcc.html ">Bank accounts</a></div>
-                    <div><a href="./accTransactions.html ">Transactions history</a></div>
+                    <div><a href="./adminAllUser.html ">All accounts</a></div>
                 </div>
             </div>
             
             <div class="menuVert ">
                 <div class="menuName ">Quick Links</div>
                 <div class="navM ">
-                    <div><a href="./allBkAcc.html ">Create Staff or Admin</a></div>
-                    <div><a href="./allBkAcc.html ">Activate or Deactivate user</a></div>
-                    <div><a href="./allBkAcc.html ">Delete user</a></div>
+                    <div><a href="./adminCreateAcc.html ">Create Staff or Admin</a></div>
+                    <div><a href="./adminOneAcc.html ">Activate or Deactivate user</a></div>
+                    <div><a href="./adminOneBkAcc.html ">Delete account</a></div>
                 </div>
             </div>
             <div class="menuVert ">
@@ -75,7 +74,7 @@
             
         </div>
             <div class="rightUpper ">
-                <div class="stat ">
+                <div class="stat " onclick="window.location.href='./adminAllUser.html' ">
                     <div class="statNum ">
                         <h2> 2</h2>
                     </div>
@@ -83,7 +82,7 @@
                         <h4> Credits </h4>
                     </div>
                 </div>
-                <div class="stat ">
+                <div class="stat " onclick="window.location.href='./adminAllUser.html' ">
                     <div class="statNum ">
                         <h2> 2</h2>
                     </div>
@@ -91,7 +90,7 @@
                         <h4>Debits</h4>
                     </div>
                 </div>
-                <div class="stat ">
+                <div class="stat " onclick="window.location.href='./adminAllUser.html' ">
                     <div class="statNum ">
                         <h2> 20</h2>
                     </div>
@@ -103,8 +102,8 @@
 
             <div class="featureSubTitle ">
                 <h3> Recent Admin and Staff accounts added</h3>
-                <button class="newAccBtn " onclick="window.location.href='./createStaff.html' ">New Staff/Admin</button>
-                <button class="viewAll " onclick="window.location.href='./allBkaccs.html' ">View all</button>
+                <button class="newAccBtn " onclick="window.location.href='./adminCreateAcc.html' ">New Staff/Admin</button>
+                <button class="viewAll " onclick="window.location.href='./adminAllUser.html' ">View all</button>
             </div>
             <div class="transactions ">
                 <table class="transactionTable ">
@@ -119,7 +118,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr onclick="window.location.href='./adminOneAcc.html' ">
                             <td>475874</td>
                             <td>email@email.com</td>
                             <td>Olivier</td>
@@ -128,7 +127,7 @@
                             <td>True</td>
                         </tr>
 
-                        <tr>
+                        <tr onclick="window.location.href='./adminOneAcc.html' ">
                             <td>475874</td>
                             <td>email@email.com</td>
                             <td>Olivier</td>
@@ -137,7 +136,7 @@
                             <td>True</td>
                         </tr>
 
-                        <tr>
+                        <tr onclick="window.location.href='./adminOneAcc.html' ">
                             <td>475874</td>
                             <td>email@email.com</td>
                             <td>Olivier</td>
@@ -145,7 +144,6 @@
                             <td>Staff</td>
                             <td>True</td>
                         </tr>
-                        <tr>
                     </tbody>
                 </table>
 

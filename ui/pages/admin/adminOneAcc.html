@@ -16,8 +16,8 @@
             <div class="accountDrop">
                 <button id="accountDropBtn" class="accountDropBtn">Admin name</button>
                 <div class="accountElements">
-                    <a class="userBtn" href="./signin.html" id="userBtn">Enter as Staff</a>
-                    <a class="signoutBtn" href="./signin.html" id="signoutBtn">Sign Out</a>
+                    <a class="userBtn" href="../staff/staff.html" id="userBtn">Enter as Staff</a>
+                    <a class="signoutBtn" href="../user/signin.html" id="signoutBtn">Sign Out</a>
                 </div>
             </div>
         </div>
@@ -41,17 +41,16 @@
                 <div class="menuVert ">
                     <div class="menuName ">Categories</div>
                     <div class="navM ">
-                        <div><a href="./allBkAcc.html ">Bank accounts</a></div>
-                        <div><a href="./accTransactions.html ">Transactions history</a></div>
+                        <div><a href="./adminAllUser.html">All accounts</a></div>
                     </div>
                 </div>
 
                 <div class="menuVert ">
                     <div class="menuName ">Quick Links</div>
                     <div class="navM ">
-                        <div><a href="./allBkAcc.html ">Create Staff or Admin</a></div>
-                        <div><a href="./allBkAcc.html ">Activate or Deactivate user</a></div>
-                        <div><a href="./allBkAcc.html ">Delete user</a></div>
+                        <div><a href="./adminCreateAcc.html ">Create Staff or Admin</a></div>
+                        <div><a href="./adminOneAcc.html ">Activate or Deactivate user</a></div>
+                        <div><a href="./adminOneBkAcc.html ">Delete account</a></div>
                     </div>
                 </div>
                 <div class="menuVert ">
@@ -79,7 +78,7 @@
 
                 </div>
 
-                <div class="rightUpper ">
+                <div class="rightUpper " onclick="window.location.href='./adminAllUser.html'" ">
                     <div class="stat ">
                         <div class="statNum ">
                             <h2> 2</h2>
@@ -88,20 +87,12 @@
                             <h4> All accounts</h4>
                         </div>
                     </div>
-                    <div class="stat ">
+                    <div class="stat " onclick="window.location.href='./adminAllUser.html' ">
                         <div class="statNum ">
                             <h2> 2</h2>
                         </div>
                         <div class="statTitle ">
                             <h4> Active accounts</h4>
-                        </div>
-                    </div>
-                    <div class="stat ">
-                        <div class="statNum ">
-                            <h2> 20</h2>
-                        </div>
-                        <div class="statTitle ">
-                            <h4>Transactions</h4>
                         </div>
                     </div>
                 </div>
@@ -111,11 +102,11 @@
                 </div>
                 <div class="rightContent ">
 
-                    <div class="cardPost ">
-                        <a href="../staff/oneBkAcc.html ">
+                    <div class="cardPost " onclick="window.location.href='./adminOneBkAcc.html' ">
+                        <a href="./adminOneBkAcc.html ">
                             <div class="cardTexts ">
-                                <div class="cardTitle "> <a href="../staff/oneBkAcc.html ">User name</a></div>
-                                <div class="cardDesc "> <a href="../staff/oneBkAcc.html ">4568 5557 5754 7515</a></div>
+                                <div class="cardTitle "> <a href="./adminOneBkAcc.html ">User name</a></div>
+                                <div class="cardDesc "> <a href="./adminOneBkAcc.html ">4568 5557 5754 7515</a></div>
                                 <div class="cardMeta ">
                                     <ul>
                                         <li> <a>Status: <span>Active</span>  </a></li>
@@ -128,11 +119,11 @@
                             </div>
                         </a>
                     </div>
-                    <div class="cardPost ">
-                        <a href="../staff/oneBkAcc.html ">
+                    <div class="cardPost " onclick="window.location.href='./adminOneBkAcc.html' ">
+                        <a href="./adminOneBkAcc.html ">
                             <div class="cardTexts ">
-                                <div class="cardTitle "> <a href="# ">User name</a></div>
-                                <div class="cardDesc "> <a href="# ">4568 5557 5754 7515</a></div>
+                                <div class="cardTitle "> <a href="./adminOneBkAcc.html ">User name</a></div>
+                                <div class="cardDesc "> <a href="./adminOneBkAcc.html ">4568 5557 5754 7515</a></div>
                                 <div class="cardMeta ">
                                     <ul>
                                         <li> <a>Status: <span>Active</span>  </a></li>
@@ -150,8 +141,7 @@
 
 
                 <div class="featureSubTitle ">
-                    <h3> Transactions </h3>
-                    <button class="viewAll ">View all Transactions</button>
+                    <h3> Activities </h3>
                 </div>
                 <div class="transactions ">
                     <table class="transactionTable ">
@@ -166,32 +156,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>9:00 - 25th Jan, 2020</td>
-                                <td>Credit</td>
-                                <td>For future use</td>
-                                <td>5000</td>
-                                <td>4562 8654 8952 2458</td>
-                                <td>5200</td>
-                            </tr>
-                            <tr>
-                                <td>9:00 - 25th Jan, 2020</td>
-                                <td>Credit</td>
-                                <td>For future use</td>
-                                <td>5000</td>
-                                <td>4562 8654 8952 2458</td>
-                                <td>5200</td>
-                            </tr>
-                            <tr>
-                                <td>9:00 - 25th Jan, 2020</td>
-                                <td>Credit</td>
-                                <td>For future use</td>
-                                <td>5000</td>
-                                <td>4562 8654 8952 2458</td>
-                                <td>5200</td>
-                            </tr>
+                            <tr onclick="window.location.href='./adminOneBkAcc.html' "">
+                    <td>9:00 - 25th Jan, 2020</td>
+                    <td>Credit</td>
+                    <td>For future use</td>
+                    <td>5000</td>
+                    <td>4562 8654 8952 2458</td>
+                    <td>5200</td>
+                    </tr>
+                    <tr onclick="window.location.href='./adminOneBkAcc.html' ">
+                        <td>9:00 - 25th Jan, 2020</td>
+                        <td>Credit</td>
+                        <td>For future use</td>
+                        <td>5000</td>
+                        <td>4562 8654 8952 2458</td>
+                        <td>5200</td>
+                    </tr>
+                    <tr onclick="window.location.href='./adminOneBkAcc.html' ">
+                        <td>9:00 - 25th Jan, 2020</td>
+                        <td>Credit</td>
+                        <td>For future use</td>
+                        <td>5000</td>
+                        <td>4562 8654 8952 2458</td>
+                        <td>5200</td>
+                    </tr>
 
-                        </tbody>
+                    </tbody>
                     </table>
 
 
@@ -205,24 +195,24 @@
         </div>
 
         <!-- Modal -->
-        <div id="deActivate" class="deActivateMod">
+        <div id="deActivate " class="deActivateMod ">
 
             <!-- Modal content -->
-            <div class="openedMessage">
-                <span id="closeDeact" class="close">&times;</span>
+            <div class="openedMessage ">
+                <span id="closeDeact " class="close ">&times;</span>
                 <h3>User activation</h3>
-                <div class="message">User has been <span>Deactivated</span> </div>
+                <div class="message ">User has been <span>Deactivated</span> </div>
 
             </div>
 
         </div>
-        <div id="activate" class="activateMod">
+        <div id="activate " class="activateMod ">
 
             <!-- Modal content -->
-            <div class="openedMessage">
-                <span id="closeAct" class="close">&times;</span>
+            <div class="openedMessage ">
+                <span id="closeAct " class="close ">&times;</span>
                 <h3>User activation</h3>
-                <div class="message">User has been <span>Activated</span> </div>
+                <div class="message ">User has been <span>Activated</span> </div>
 
             </div>
 
@@ -230,40 +220,40 @@
 
     </main>
 
-    <script src="../../scripts/script.js"></script>
+    <script src="../../scripts/script.js "></script>
     <script>
-        let actBtn = document.getElementById("actBtn");
-        let closeAct = document.getElementById("closeAct");
-        let activate = document.getElementById("activate");
+        let actBtn = document.getElementById("actBtn ");
+        let closeAct = document.getElementById("closeAct ");
+        let activate = document.getElementById("activate ");
         let status = document.getElementsByClassName('statu')[0]
 
         actBtn.onclick = () => {
-            activate.style.display = "block";
-            status.style.color = "#16C39A"
-            status.innerHTML = "(Active)"
+            activate.style.display = "block ";
+            status.style.color = "#16C39A "
+            status.innerHTML = "(Active) "
         }
-        closeAct.onclick = () => activate.style.display = "none";
+        closeAct.onclick = () => activate.style.display = "none ";
 
 
 
-        let deactBtn = document.getElementById("deactBtn");
-        let closeDeact = document.getElementById("closeDeact");
-        let deActivate = document.getElementById("deActivate");
+        let deactBtn = document.getElementById("deactBtn ");
+        let closeDeact = document.getElementById("closeDeact ");
+        let deActivate = document.getElementById("deActivate ");
 
         deactBtn.onclick = () => {
-            deActivate.style.display = "block";
-            status.style.color = "#e42e0d"
-            status.innerHTML = "(Inactive)"
+            deActivate.style.display = "block ";
+            status.style.color = "#e42e0d "
+            status.innerHTML = "(Inactive) "
         }
 
-        closeDeact.onclick = () => deActivate.style.display = "none";
+        closeDeact.onclick = () => deActivate.style.display = "none ";
 
 
 
         window.onclick = event => {
             if (event.target == deActivate || event.target == activate) {
-                deActivate.style.display = "none";
-                activate.style.display = "none";
+                deActivate.style.display = "none ";
+                activate.style.display = "none ";
             }
         }
     </script>
