@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #3C3F43;
+    background-color: #F8FAFB
+}
+
+main {
+    align-items: center;
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+}
