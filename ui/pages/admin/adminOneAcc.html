@@ -38,7 +38,7 @@
                 <div class="card ">
                     <div class="titleHeader ">
                         <p>John Doe</p>
-                        <h5>adminname@email.com</h5>
+                        <h5>johndoe@gmail.com</h5>
                         <div class="headerCard ">
                             <img src="../../assets/man.png ">
                         </div>
@@ -203,65 +203,66 @@
         </div>
 
 
-        <div id="deActivate " class="deActivateMod ">
-
-
-            <div class="openedMessage ">
-                <span id="closeDeact " class="close ">&times;</span>
-                <h3>User activation</h3>
-                <div class="message ">User has been <span>Deactivated</span> </div>
-
-            </div>
-
-        </div>
-        <div id="activate " class="activateMod ">
-
-
-            <div class="openedMessage ">
-                <span id="closeAct " class="close ">&times;</span>
-                <h3>User activation</h3>
-                <div class="message ">User has been <span>Activated</span> </div>
-
-            </div>
-
-        </div>
 
     </main>
+    <div id="activate" class="activateMod">
 
-    <script src="../../scripts/script.js "></script>
+
+        <div class="openedMessage">
+            <span id="closeAct" class="close">&times;</span>
+            <h3>User activation</h3>
+            <div class="message">User has been <span>Activated</span> </div>
+
+        </div>
+
+    </div>
+
+    <div id="deActivate" class="deActivateMod">
+
+
+        <div class="openedMessage">
+            <span id="closeDeact" class="close">&times;</span>
+            <h3>User activation</h3>
+            <div class="message">User has been <span>Deactivated</span> </div>
+
+        </div>
+
+    </div>
+
     <script>
-        let actBtn = document.getElementById("actBtn ");
-        let closeAct = document.getElementById("closeAct ");
-        let activate = document.getElementById("activate ");
+        let actBtn = document.getElementById("actBtn");
+
+        let closeAct = document.getElementById("closeAct");
+        let activate = document.getElementById("activate");
         let status = document.getElementsByClassName('statu')[0]
 
         actBtn.onclick = () => {
-            activate.style.display = "block ";
-            status.style.color = "#16C39A "
-            status.innerHTML = "(Active) "
+            activate.style.display = "block";
+            status.style.color = "#16C39A"
+            status.innerHTML = "(Active)"
         }
-        closeAct.onclick = () => activate.style.display = "none ";
+        closeAct.onclick = () => activate.style.display = "none";
 
 
 
-        let deactBtn = document.getElementById("deactBtn ");
-        let closeDeact = document.getElementById("closeDeact ");
-        let deActivate = document.getElementById("deActivate ");
+        let deactBtn = document.getElementById("deactBtn");
+        let closeDeact = document.getElementById("closeDeact");
+        let deActivate = document.getElementById("deActivate");
 
         deactBtn.onclick = () => {
-            deActivate.style.display = "block ";
-            status.style.color = "#e42e0d "
-            status.innerHTML = "(Inactive) "
+            deActivate.style.display = "block";
+            status.style.color = "#e42e0d"
+            status.innerHTML = "(Inactive)"
         }
 
-        closeDeact.onclick = () => deActivate.style.display = "none ";
+        closeDeact.onclick = () => deActivate.style.display = "none";
 
 
 
         window.onclick = event => {
             if (event.target == deActivate || event.target == activate) {
-                deActivate.style.display = "none ";
-                activate.style.display = "none ";
+                deActivate.style.display = "none";
+                activate.style.display = "none";
             }
         }
     </script>
