@@ -1,0 +1,58 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="title"><a href="#">Papel</a></div>
+        <div class="account">
+            <div class="accountDrop">
+                <button id="accountDropBtn" class="accountDropBtn" onclick="window.location.href='./signin.html'">Sign in</button>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div class="signFrame">
+                <div class="appTitle">
+                    <a href="#">Papel</a>
+                </div>
+                <div class="signTitle">Sign Up</div>
+                <div class="subTitle">to continue to Papel</div>
+                <form class="formEntry" action="./signin.html">
+                    <fieldset class="userName">
+                        <input type="text" placeholder="User name" id="uNameId" required>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <input type="text" placeholder="First Name" id="fNameId" required>
+                        <input type="text" placeholder="Last Name" id="lNameId" required>
+                    </fieldset>
+                    <fieldset>
+                        <input type="email" placeholder="email@email.com" id="inputEmail" required>
+                    </fieldset>
+                    <fieldset>
+                        <fieldset>
+                            <input type="password" id="inputPwdPlus" placeholder="Password" required>
+                            <input type="password" id="inputPwdConfirm" placeholder="Confirm Password" required>
+                        </fieldset>
+                        <input type="submit" value="Sign Up" id="signUp" class="submitBtn">
+
+                </form>
+                <div class="messageSign"> You have an account?
+                    <a href="./signin.html">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../../scripts/script.js"></script>
+</body>
+
+</html>
