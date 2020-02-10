@@ -1,7 +1,7 @@
 .formEntry {
     padding-top: 40px;
     text-align: left;
-}
+    color: #0B6623;
 
 fieldset {
     margin: 10px 0;
@@ -55,4 +55,7 @@ input[type="email"] {
 
 input[type="password"] {
     padding: 10px 10px 10px 20px;
+input[type="radio"] {
+    width: auto;
+    margin: 5px;
 }
