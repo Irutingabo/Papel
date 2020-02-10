@@ -1,0 +1,177 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papel - Staff</title>
+    <link rel="stylesheet" href="../../css/style.css" "
+</head>
+<body>
+    <header>
+        <div class="title "> <a href="# ">Papel</a> </div>
+        <div class="navg ">
+            <div class="menu ">
+                <a href="./allBkAcc.html ">All accounts</a>
+            </div>
+            <div class="menu ">
+                <a href="../user/signin.html ">Sign Out</a>
+            </div>
+        </div>
+        <div class="account ">
+            <div class="navg ">
+                <div class="menu ">
+                    <a href="# ">Bank accounts</a>
+                </div>
+                <div class="menu ">
+                    <a href="../user/signin.html ">Sign Out</a>
+                </div>
+            </div>
+            <div class="accountDrop ">
+                <button id="accountDropBtn " class="accountDropBtn ">John Doe</button>
+                <div class="accountElements ">
+                    <a class="userBtn " href="../admin/admin.html " id="userBtn ">Enter as Admin</a>
+                    <a class="signoutBtn " href="../user/signin.html " id="signoutBtn ">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main ">
+    <div class="gridContainer ">
+        <div class="leftSide ">
+            <div class="card ">
+                <div class="titleHeader ">
+                    <p>John Doe</p>
+                    <h5>johndoe@gmail.com</h5>
+                    <div class="headerCard ">
+                        <img src="../../assets/man.png ">
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="menuVert ">
+                <div class="menuName ">Menu</div>
+                <div class="navM ">
+                    <div><a href="./allBkAcc.html ">Bank accounts</a></div>
+                </div>
+            </div>
+            
+            <div class="menuVert ">
+                <div class="menuName ">Quick Links</div>
+                <div class="navM ">
+                    <div><a href="./oneBkAcc.html ">Credit</a></div>
+                    <div><a href="./oneBkAcc.html ">Debit</a></div>
+                </div>
+            </div>
+            <div class="menuVert ">
+                <div class="menuName ">Settings</div>
+                <div class="navM ">
+                    <div><a href="# ">Reset password</a></div>
+                    <div><a href="# ">Allow notification</a></div>
+                 </div>
+            </div>
+
+        </div>
+        <div class="rightSide ">
+        <div class="pageName ">
+            <h3>Staff</h3>
+            
+        </div>
+            <div class="rightUpper ">
+                <div class="stat ">
+                    <div class="statNum ">
+                        <h2> 2</h2>
+                    </div>
+                    <div class="statTitle ">
+                        <h4> Credits </h4>
+                    </div>
+                </div>
+                <div class="stat ">
+                    <div class="statNum ">
+                        <h2> 2</h2>
+                    </div>
+                    <div class="statTitle ">
+                        <h4>Debits</h4>
+                    </div>
+                </div>
+                <div class="stat ">
+                    <div class="statNum ">
+                        <h2> 20</h2>
+                    </div>
+                    <div class="statTitle ">
+                        <h4>Deleted</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="featureSubTitle ">
+                <h3> Recent Accounts accessed </h3>
+                <button class="viewAll " onclick="window.location.href='./allBkAcc.html' ">View all Accounts</button>
+            </div>
+            <div class="transactions ">
+                <table class="transactionTable ">
+                    <thead>
+                        <tr>
+                            <th>Done</th>
+                            <th>Account</th>
+                            <th>Cashier</th>
+                            <th>Reason</th>
+                            <th>Type</th>
+                            <th>Current Balance ($)</th>
+                            <th>Amount ($)</th>
+                            <th>New Balance ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="window.location.href='./oneBkAcc.html' ">
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>Claude</td>
+                            <td>For saving</td>
+                            <td>Credit</td>
+                            <td>200</td>
+                            <td>5000</td>
+                            <td>5200</td>
+                        </tr>
+                        <tr onclick="window.location.href='./oneBkAcc.html' ">
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>Claude</td>
+                            <td>For saving</td>
+                            <td>Credit</td>
+                            <td>200</td>
+                            <td>5000</td>
+                            <td>5200</td>
+                        </tr>
+                        <tr onclick="window.location.href='./oneBkAcc.html' ">
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>Claude</td>
+                            <td>For saving</td>
+                            <td>Credit</td>
+                            <td>200</td>
+                            <td>5000</td>
+                            <td>5200</td>
+                        </tr>
+                        <tr onclick="window.location.href='./oneBkAcc.html' ">
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>Claude</td>
+                            <td>For saving</td>
+                            <td>Credit</td>
+                            <td>200</td>
+                            <td>5000</td>
+                            <td>5200</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+
+        </div>
+    </div>
+    </main>
+</body>
+</html>
