@@ -1,0 +1,317 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Papel - Bank account</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="title"> <a href="#">Papel</a> </div>
+
+        <div class="navg ">
+            <div class="menu ">
+                <a href="./allBkAcc.html ">All accounts</a>
+            </div>
+            <div class="menu ">
+                <a href="../user/signin.html ">Sign Out</a>
+            </div>
+        </div>
+        <div class="account">
+            <div class="accountDrop">
+                <button id="accountDropBtn" class="accountDropBtn">John Doe</button>
+                <div class="accountElements">
+                    <a class="userBtn" href="../admin/admin.html" id="userBtn">Enter as Admin</a>
+                    <a class="signoutBtn" href="../user/signin.html" id="signoutBtn">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main ">
+
+        <div class="gridContainer ">
+            <div class="leftSide ">
+                <div class="card ">
+                    <div class="titleHeader ">
+                        <p>John Doe</p>
+                        <h5>johndoe@gmail.com.com</h5>
+                        <div class="headerCard ">
+                            <img src="../../assets/man.png ">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="menuVert ">
+                    <div class="menuName ">Menu</div>
+                    <div class="navM ">
+                        <div><a href="./allBkAcc.html">Bank accounts</a></div>
+                    </div>
+                </div>
+                <div class="menuVert ">
+                    <div class="menuName ">Quick Links</div>
+                    <div class="navM ">
+                        <div><a href="./oneBkAcc.html">Credit</a></div>
+                        <div><a href="./oneBkAcc.html">Debit</a></div>
+                        <div><a href="./oneBkAcc.html">Delete</a></div>
+                    </div>
+                </div>
+                <div class="menuVert ">
+                    <div class="menuName ">Settings</div>
+                    <div class="navM ">
+                        <div><a href="# ">Reset password</a></div>
+                        <div><a href="# ">Allow notification</a></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="rightSide ">
+                <div class="pageTitle">
+                    <div class="userNme">
+                        <div class="pageName ">Bank account</div>
+                    </div>
+                    <div class="userStatus">
+                        <div id="userStatu" class="statu">(Active)</div>
+                    </div>
+                </div>
+
+                <div class="rightContentOneTran ">
+                    <div class="cardPost ">
+                        <a href="# ">
+                            <div class="cardTexts ">
+                                <div class="cardTitle "> <a href="# ">John Doe</a></div>
+                                <div class="cardDesc "> <a href="# ">4568 5557 5754 7515</a></div>
+                                <div class="cardMeta ">
+                                    <ul>
+                                        <li> <a>Status: <span>Active</span>  </a></li>
+                                        <li> <a>Type: <span>Savings</span>  </a></li>
+                                        <li> <a>Transactions: <span>10</span>  </a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="addTra">
+                        <button id="creditAccBtn" class="newTraBtn ">Credit</button>
+                        <button id="debitAccBtn" class="newTraBtn ">Debit</button>
+                        <button id="delTran" class="delTran ">Delete</button>
+                    </div>
+                </div>
+                <div class="balanceAmt">
+                    <h3>Balance: <span>$1400 </span></h3>
+                </div>
+                <div class="featureSubTitle ">
+                    <h3> Transactions </h3>
+                </div>
+                <div class="filterRec">
+                    <div class="searchRec">
+                        <input type="text" name="inSearchRec" id="inSearchRec" placeholder="Search Account, Reason or Type of Transaction">
+                    </div>
+                </div>
+                <div class="transactions ">
+                    <table class="transactionTable ">
+                        <thead>
+                            <tr>
+                                <th>Done</th>
+                                <th>Account</th>
+                                <th>Cashier</th>
+                                <th>Reason</th>
+                                <th>Type</th>
+                                <th>Current Balance ($)</th>
+                                <th>Amount ($)</th>
+                                <th>New Balance ($)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>9:00 - 25th Jan, 2020</td>
+                                <td>4562 8654 8952 2458</td>
+                                <td>Claude</td>
+                                <td>For saving</td>
+                                <td>Credit</td>
+                                <td>200</td>
+                                <td>5000</td>
+                                <td>5200</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 - 25th Jan, 2020</td>
+                                <td>4562 8654 8952 2458</td>
+                                <td>Claude</td>
+                                <td>For saving</td>
+                                <td>Credit</td>
+                                <td>200</td>
+                                <td>5000</td>
+                                <td>5200</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 - 25th Jan, 2020</td>
+                                <td>4562 8654 8952 2458</td>
+                                <td>Claude</td>
+                                <td>For saving</td>
+                                <td>Credit</td>
+                                <td>200</td>
+                                <td>5000</td>
+                                <td>5200</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 - 25th Jan, 2020</td>
+                                <td>4562 8654 8952 2458</td>
+                                <td>Claude</td>
+                                <td>For saving</td>
+                                <td>Credit</td>
+                                <td>200</td>
+                                <td>5000</td>
+                                <td>5200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+
+
+    <div id="deleteBtn" class="deleteBtnMod">
+
+
+        <div class="openedMessage">
+            <span id="closeact" class="close">&times;</span>
+            <h3>Bank account deleting</h3>
+
+            <div class="cardPost ">
+                <a href="# ">
+                    <div class="cardTexts ">
+                        <div class="cardTitle "> <a href="# ">John Doe</a></div>
+                        <div class="cardDesc "> <a href="# ">4568 5557 5754 7515</a></div>
+                        <div class="cardMeta ">
+                            <ul>
+                                <li> <a>Status: <span>Active</span>  </a></li>
+                                <li> <a>Type: <span>Savings</span>  </a></li>
+                                <li> <a>Transactions: <span>10</span>  </a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="message">This Bank account has been <span>Deleted</span> </div>
+
+        </div>
+
+    </div>
+
+    <div id="creditBtn" class="creditBtnMod">
+
+
+        <div class="openedMessage">
+            <span id="closeCred" class="close">&times;</span>
+            <h3>Bank account credit</h3>
+
+            <div class="signFrame">
+                <div class="appTitle">
+                    <a href="#">Papel</a>
+                </div>
+                <div class="signTitle">Are you sure you want to credit this account?</div>
+                <div class="subTitle">Enter amount to credit</div>
+                <form class="formEntry" action="./oneBkAcc.html">
+                    <fieldset>
+                        <input type="Number" placeholder="Amount" id="creditedAmo" required>
+                        <input type="text" id="creditReason" placeholder="Reason" required>
+                    </fieldset>
+                    <input type="submit" value="Credit" class="submitBtn" id="creditBtnGo">
+                </form>
+            </div>
+
+            <div class="message"> <span>Close</span> to stop credit </div>
+
+        </div>
+
+    </div>
+
+    <div id="debitBtn" class="debitBtnMod">
+
+
+        <div class="openedMessage">
+            <span id="closedeb" class="close">&times;</span>
+            <h3>Bank account debit</h3>
+
+            <div class="signFrame">
+                <div class="appTitle">
+                    <a href="#">Papel</a>
+                </div>
+                <div class="signTitle">Are you sure you want to debit this account?</div>
+                <div class="subTitle">Enter amount to debit</div>
+                <form class="formEntry" action="./oneBkAcc.html">
+                    <fieldset>
+                        <input type="Number" placeholder="Amount" id="debitedAmo" required>
+                        <input type="text" id="debitReason" placeholder="Reason" required>
+                    </fieldset>
+                    <input type="submit" value="debit" class="submitBtn" id="debitBtnGo">
+                </form>
+            </div>
+
+            <div class="message"> <span>Close</span> to stop debit </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        let debitAccBtn = document.getElementById("debitAccBtn");
+        let closedeb = document.getElementById("closedeb");
+        let debitBtn = document.getElementById("debitBtn");
+
+
+        debitAccBtn.onclick = () => {
+            debitBtn.style.display = "block";
+        }
+        closedeb.onclick = () => debitBtn.style.display = "none";
+
+        let creditAccBtn = document.getElementById("creditAccBtn");
+        let closeCred = document.getElementById("closeCred");
+        let creditBtn = document.getElementById("creditBtn");
+
+
+        creditAccBtn.onclick = () => {
+            creditBtn.style.display = "block";
+        }
+        closeCred.onclick = () => creditBtn.style.display = "none";
+
+
+        let delTran = document.getElementById("delTran");
+        let closeAct = document.getElementById("closeact");
+        let deleteBtn = document.getElementById("deleteBtn");
+        let status = document.getElementsByClassName('statu')[0]
+
+        delTran.onclick = () => {
+            deleteBtn.style.display = "block";
+            status.style.color = "#e42e0d"
+            status.innerHTML = "(Deleted)"
+        }
+        closeAct.onclick = () => deleteBtn.style.display = "none";
+
+
+
+
+        window.onclick = event => {
+            if (event.target == deleteBtn || event.target == creditBtn || event.target == debitBtn) {
+                deleteBtn.style.display = "none";
+                creditBtn.style.display = "none";
+                debitBtn.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
