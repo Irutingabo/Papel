@@ -1,0 +1,270 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papel - Bank account</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="title"> <a href="#">Papel</a> </div>
+
+        <div class="navg ">
+            <div class="menu ">
+                <a href="./adminAllUser.html">All users</a>
+            </div>
+            <div class="menu ">
+                <a href="../user/signin.html ">Sign Out</a>
+            </div>
+        </div>
+
+        <div class="account">
+            <div class="accountDrop">
+                <button id="accountDropBtn" class="accountDropBtn">John Doe</button>
+                <div class="accountElements">
+                    <a class="userBtn" href="../staff/staff.html" id="userBtn">Enter as Staff</a>
+                    <a class="signoutBtn" href="../user/signin.html" id="signoutBtn">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main ">
+
+        <div class="gridContainer ">
+            <div class="leftSide ">
+                <div class="card ">
+                    <div class="titleHeader ">
+                        <p>John Doe</p>
+                        <h5>adminname@email.com</h5>
+                        <div class="headerCard ">
+                            <img src="../../assets/man.png ">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="menuVert ">
+                    <div class="menuName ">Menu</div>
+                    <div class="navM ">
+                        <div><a href="./adminAllUser.html">All accounts</a></div>
+                    </div>
+                </div>
+
+                <div class="menuVert ">
+                    <div class="menuName ">Quick Links</div>
+                    <div class="navM ">
+                        <div><a href="./adminCreateAcc.html ">Create Staff or Admin</a></div>
+                        <div><a href="./adminOneAcc.html ">Activate or Deactivate user</a></div>
+                        <div><a href="./adminOneBkAcc.html ">Delete account</a></div>
+                    </div>
+                </div>
+                <div class="menuVert ">
+                    <div class="menuName ">Settings</div>
+                    <div class="navM ">
+                        <div><a href="# ">Reset password</a></div>
+                        <div><a href="# ">Allow notification</a></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="rightSide ">
+                <div class="pageTitle">
+                    <div class="userNme">
+                        <div class="pageName ">John Doe</div>
+                    </div>
+                    <div class="userStatus">
+                        <div id="userStatu" class="statu">(Active)</div>
+                    </div>
+                    <div class="dactiv">
+                        <button class="actBtn " id="actBtn">activate User</button>
+                        <button class="deactBtn " id="deactBtn">De-activate User</button>
+                    </div>
+
+
+                </div>
+
+                <div class="rightUpper " onclick="window.location.href='./adminAllUser.html'" ">
+                    <div class="stat ">
+                        <div class="statNum ">
+                            <h2> 2</h2>
+                        </div>
+                        <div class="statTitle ">
+                            <h4> All accounts</h4>
+                        </div>
+                    </div>
+                    <div class="stat " onclick="window.location.href='./adminAllUser.html' ">
+                        <div class="statNum ">
+                            <h2> 2</h2>
+                        </div>
+                        <div class="statTitle ">
+                            <h4> Active accounts</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="featureSubTitle ">
+                    <h3>Accounts</h3>
+                </div>
+                <div class="rightContent ">
+
+                    <div class="cardPost " onclick="window.location.href='./adminOneBkAcc.html' ">
+                        <a href="./adminOneBkAcc.html ">
+                            <div class="cardTexts ">
+                                <div class="cardTitle "> <a href="./adminOneBkAcc.html ">John Doe</a></div>
+                                <div class="cardDesc "> <a href="./adminOneBkAcc.html ">4568 5557 5754 7515</a></div>
+                                <div class="cardMeta ">
+                                    <ul>
+                                        <li> <a>Status: <span>Active</span>  </a></li>
+                                        <li> <a>Type: <span>Savings</span>  </a></li>
+                                        <li> <a>Transactions: <span>10</span>  </a></li>
+                                        <li> <a>Balance: <span>$1400 </span></a> </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="cardPost " onclick="window.location.href='./adminOneBkAcc.html' ">
+                        <a href="./adminOneBkAcc.html ">
+                            <div class="cardTexts ">
+                                <div class="cardTitle "> <a href="./adminOneBkAcc.html ">John Doe</a></div>
+                                <div class="cardDesc "> <a href="./adminOneBkAcc.html ">4568 5557 5754 7515</a></div>
+                                <div class="cardMeta ">
+                                    <ul>
+                                        <li> <a>Status: <span>Active</span>  </a></li>
+                                        <li> <a>Type: <span>Savings</span>  </a></li>
+                                        <li> <a>Transactions: <span>10</span>  </a></li>
+                                        <li> <a>Balance: <span>$1400 </span></a> </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+
+                <div class="featureSubTitle ">
+                    <h3> Activities </h3>
+                </div>
+                <div class="transactions ">
+                    <table class="transactionTable ">
+                        <thead>
+                            <tr>
+                                <th>Done</th>
+                                <th>Type</th>
+                                <th>Reason</th>
+                                <th>Amount ($)</th>
+                                <th>Account</th>
+                                <th>New Balance ($)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="window.location.href='./adminOneBkAcc.html' "">
+                    <td>9:00 - 25th Jan, 2020</td>
+                    <td>Credit</td>
+                    <td>For future use</td>
+                    <td>5000</td>
+                    <td>4562 8654 8952 2458</td>
+                    <td>5200</td>
+                    </tr>
+                    <tr onclick="window.location.href='./adminOneBkAcc.html' ">
+                        <td>9:00 - 25th Jan, 2020</td>
+                        <td>Credit</td>
+                        <td>For future use</td>
+                        <td>5000</td>
+                        <td>4562 8654 8952 2458</td>
+                        <td>5200</td>
+                    </tr>
+                    <tr onclick="window.location.href='./adminOneBkAcc.html' ">
+                        <td>9:00 - 25th Jan, 2020</td>
+                        <td>Credit</td>
+                        <td>For future use</td>
+                        <td>5000</td>
+                        <td>4562 8654 8952 2458</td>
+                        <td>5200</td>
+                    </tr>
+
+                    </tbody>
+                    </table>
+
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <div id="deActivate " class="deActivateMod ">
+
+
+            <div class="openedMessage ">
+                <span id="closeDeact " class="close ">&times;</span>
+                <h3>User activation</h3>
+                <div class="message ">User has been <span>Deactivated</span> </div>
+
+            </div>
+
+        </div>
+        <div id="activate " class="activateMod ">
+
+
+            <div class="openedMessage ">
+                <span id="closeAct " class="close ">&times;</span>
+                <h3>User activation</h3>
+                <div class="message ">User has been <span>Activated</span> </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="../../scripts/script.js "></script>
+    <script>
+        let actBtn = document.getElementById("actBtn ");
+        let closeAct = document.getElementById("closeAct ");
+        let activate = document.getElementById("activate ");
+        let status = document.getElementsByClassName('statu')[0]
+
+        actBtn.onclick = () => {
+            activate.style.display = "block ";
+            status.style.color = "#16C39A "
+            status.innerHTML = "(Active) "
+        }
+        closeAct.onclick = () => activate.style.display = "none ";
+
+
+
+        let deactBtn = document.getElementById("deactBtn ");
+        let closeDeact = document.getElementById("closeDeact ");
+        let deActivate = document.getElementById("deActivate ");
+
+        deactBtn.onclick = () => {
+            deActivate.style.display = "block ";
+            status.style.color = "#e42e0d "
+            status.innerHTML = "(Inactive) "
+        }
+
+        closeDeact.onclick = () => deActivate.style.display = "none ";
+
+
+
+        window.onclick = event => {
+            if (event.target == deActivate || event.target == activate) {
+                deActivate.style.display = "none ";
+                activate.style.display = "none ";
+            }
+        }
+    </script>
+</body>
+
+</html>
