@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papel - New Bank Account</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="title"><a href="#">Papel</a></div>
+        <div class="navg ">
+            <div class="menu ">
+                <a href="./user.html">Bank accounts</a>
+            </div>
+            <div class="menu ">
+                <a href="./signin.html ">Sign Out</a>
+            </div>
+        </div>
+        <div class="account">
+            <div class="accountDrop">
+                <button id="accountDropBtn" class="accountDropBtn">John Doe</button>
+                <div class="accountElements">
+                    <a class="userBtn" href="./signin.html" id="userBtn">Enter as Staff</a>
+                    <a class="signoutBtn" href="./signin.html" id="signoutBtn">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+        <div class="smallContainer">
+            <div class="signFrame">
+                <div class="appTitle">
+                    <a href="#">Papel</a>
+                </div>
+                <div class="signTitle">Please select an account type!</div>
+                <form class="formEntry" action="./signin.html">
+
+                    <fieldset>
+                        Account:
+                        <br>
+                        <input type="radio" name="accType" id="savingsType" checked required>Savings <br>
+                        <input type="radio" name="accType" id="currentType">Current <br>
+                        <input type="radio" name="accType" id="loanType">Loan <br>
+                    </fieldset>
+
+                    <input type="submit" value="Create Account" id="createAcc" class="createAcc submitBtn">
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="../../scripts/script.js"></script>
+</body>
+
+</html>
