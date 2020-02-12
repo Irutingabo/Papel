@@ -1,0 +1,193 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>John: Profile</title>
+    <link rel="stylesheet" href="../../css/style.css" "
+</head>
+<body>
+    <header>
+        <div class="title "> <a href="# ">Papel</a> </div>
+        
+
+        <div class="account ">
+            <div class="navg ">
+                <div class="menu ">
+                    <a href="./createBkAcc.html ">New Account</a>
+                </div>
+                <div class="menu ">
+                    <a href="./signin.html ">Sign Out</a>
+                </div>
+            </div>
+            <div class="accountDrop ">
+                <button id="accountDropBtn " class="accountDropBtn ">John Doe</button>
+                <div class="accountElements ">
+                    <a class="userBtn " href="../staff/staff.html " id="userBtn ">Enter as Staff</a>
+                    <a class="signoutBtn " href="./signin.html " id="signoutBtn ">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main ">
+
+        <div class="gridContainer ">
+        <div class="leftSide ">
+            <div class="card ">
+                <div class="titleHeader ">
+                    <p>John Doe</p>
+                    <h5>johndoe@gmail.com</h5>
+                    <div class="headerCard ">
+                        <img src="../../assets/man.png ">
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="menuVert ">
+                <div class="menuName ">Menu</div>
+                <div class="navM ">
+                    <div><a href="# ">Bank accounts</a></div>
+                    <div><a href="./accTransactions.html ">Transactions history</a></div>
+                </div>
+            </div>
+            <div class="menuVert ">
+                <div class="menuName ">Settings</div>
+                <div class="navM ">
+                    <div><a href="# ">Reset password</a></div>
+                    <div><a href="# ">Allow notification</a></div>
+                 </div>
+            </div>
+
+        </div>
+        <div class="rightSide ">
+        <div class="pageName ">
+            <h3>User Profile</h3>
+            
+        </div>
+            <div class="rightUpper ">
+                <div class="stat " onclick="window.location.href='./user.html' ">
+                    <div class="statNum ">
+                        <h2> 2</h2>
+                    </div>
+                    <div class="statTitle ">
+                        <h4> All accounts</h4>
+                    </div>
+                </div>
+                <div class="stat " onclick="window.location.href='./user.html' ">
+                    <div class="statNum ">
+                        <h2> 2</h2>
+                    </div>
+                    <div class="statTitle ">
+                        <h4> Active accounts</h4>
+                    </div>
+                </div>
+                <div class="stat " onclick="window.location.href='./accTransactions.html' ">
+                    <div class="statNum ">
+                        <h2> 20</h2>
+                    </div>
+                    <div class="statTitle ">
+                        <h4>Transactions</h4>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="featureSubTitle ">
+                <h3>Accounts</h3>
+                <button class="newAccBtn " onclick="window.location.href='./createBkAcc.html' ">New Bank account</button>
+            </div>
+            <div class="rightContent ">
+
+                <div class="cardPost " onclick="window.location.href='./oneAcc.html' ">
+                    <a href="./oneAcc.html ">
+                        <div class="cardTexts ">
+                            <div class="cardTitle "> <a href="./oneAcc.html ">John Doe</a></div>
+                            <div class="cardDesc "> <a href="./oneAcc.html ">4568 5557 5754 7515</a></div>
+                            <div class="cardMeta ">
+                                <ul>
+                                    <li> <a>Status: <span>Active</span>  </a></li>
+                                    <li> <a>Type: <span>Savings</span>  </a></li>
+                                    <li> <a>Transactions: <span>10</span>  </a></li>
+                                    <li> <a>Balance: <span>$1400 </span></a> </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="cardPost " onclick="window.location.href='./oneAcc.html' ">
+                    <a href="./oneAcc.html ">
+                        <div class="cardTexts ">
+                            <div class="cardTitle "> <a href="./oneAcc.html ">John Doe</a></div>
+                            <div class="cardDesc "> <a href="./oneAcc.html ">4568 5557 5754 7515</a></div>
+                            <div class="cardMeta ">
+                                <ul>
+                                    <li> <a>Status: <span>Active</span>  </a></li>
+                                    <li> <a>Type: <span>Savings</span>  </a></li>
+                                    <li> <a>Transactions: <span>10</span>  </a></li>
+                                    <li> <a>Balance: <span>$1400 </span></a> </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+
+
+            <div class="featureSubTitle ">
+                <h3> Transactions </h3>
+                <button class="viewAll " onclick="window.location.href='./accTransactions.html' ">View all Transactions</button>
+            </div>
+            <div class="transactions ">
+                <table class="transactionTable ">
+                    <thead>
+                        <tr>
+                            <th>Done</th>
+                            <th>Type</th>
+                            <th>Reason</th>
+                            <th>Amount ($)</th>
+                            <th>Account</th>
+                            <th>New Balance ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>Credit</td>
+                            <td>For future use</td>
+                            <td>5000</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>5200</td>
+                        </tr>
+                        <tr>
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>Credit</td>
+                            <td>For future use</td>
+                            <td>5000</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>5200</td>
+                        </tr>
+                        <tr>
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>Credit</td>
+                            <td>For future use</td>
+                            <td>5000</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>5200</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+
+            </div>
+
+        </div>
+    </div>
+    </main>
+</body>
+</html>

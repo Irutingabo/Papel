@@ -1,0 +1,44 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Papel - Sign In</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="title"><a href="#">Papel</a></div>
+        <div class="account">
+            <div class="accountDrop">
+                <button id="accountDropBtn" class="accountDropBtn">Sign Up</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Sign in form -->
+        <div class="container">
+            <div class="signFrame">
+                <div class="appTitle">
+                    <a href="#">Papel</a>
+                </div>
+                <div class="signTitle">Sign In continue</div>
+                <form class="formEntry" action="./user.html">
+                    <fieldset>
+                        <input type="email" placeholder="Email" id="emailId" required>
+                        <input type="password" id="pwdId" placeholder="Password" required>
+                    </fieldset>
+                    <input type="submit" value="Sign In" class="submitBtn" id="signIn">
+                </form>
+                <div class="messageSign"> You don't have an account?
+                    <a href="./signup.html">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../../scripts/script.js"></script>
+</body>
+
+</html>

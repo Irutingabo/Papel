@@ -1,0 +1,222 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papel - Admin profile</title>
+    <link rel="stylesheet" href="../../css/style.css" "
+</head>
+<body>
+    <header>
+        <div class="title "> <a href="# ">Papel</a> </div>
+        
+
+        <div class="account ">
+            <div class="navg ">
+                <div class="menu ">
+                    <a href="./adminAllUser.html ">Users accounts</a>
+                </div>
+                <div class="menu ">
+                    <a href="../user/signin.html ">Sign Out</a>
+                </div>
+            </div>
+            <div class="accountDrop ">
+                <button id="accountDropBtn " class="accountDropBtn ">John Doe</button>
+                <div class="accountElements ">
+                    <a class="userBtn " href="../staff/staff.html " id="userBtn ">Enter as Staff</a>
+                    <a class="signoutBtn " href="../user/signin.html " id="signoutBtn ">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main ">
+        
+    <div class="gridContainer ">
+        <div class="leftSide ">
+            <div class="card ">
+                <div class="titleHeader ">
+                    <p>John Doe</p>
+                    <h5>johndoe@gmail.com</h5>
+                    <div class="headerCard ">
+                        <img src="../../assets/man.png ">
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="menuVert ">
+                <div class="menuName ">Menu</div>
+                <div class="navM ">
+                    <div><a href="./adminAllUser.html ">All accounts</a></div>
+                </div>
+            </div>
+            
+            <div class="menuVert ">
+                <div class="menuName ">Quick Links</div>
+                <div class="navM ">
+                    <div><a href="./adminCreateAcc.html ">Create Staff or Admin</a></div>
+                    <div><a href="./adminOneAcc.html ">Activate or Deactivate user</a></div>
+                    <div><a href="./adminOneBkAcc.html ">Delete account</a></div>
+                </div>
+            </div>
+            <div class="menuVert ">
+                <div class="menuName ">Settings</div>
+                <div class="navM ">
+                    <div><a href="# ">Reset password</a></div>
+                    <div><a href="# ">Allow notification</a></div>
+                 </div>
+            </div>
+
+        </div>
+        <div class="rightSide ">
+        <div class="pageName ">
+            <h3>Profile</h3>
+            
+        </div>
+            <div class="rightUpper ">
+                <div class="stat " onclick="window.location.href='./adminAllUser.html' ">
+                    <div class="statNum ">
+                        <h2> 2</h2>
+                    </div>
+                    <div class="statTitle ">
+                        <h4> Credits </h4>
+                    </div>
+                </div>
+                <div class="stat " onclick="window.location.href='./adminAllUser.html' ">
+                    <div class="statNum ">
+                        <h2> 2</h2>
+                    </div>
+                    <div class="statTitle ">
+                        <h4>Debits</h4>
+                    </div>
+                </div>
+                <div class="stat " onclick="window.location.href='./adminAllUser.html' ">
+                    <div class="statNum ">
+                        <h2> 20</h2>
+                    </div>
+                    <div class="statTitle ">
+                        <h4>Deleted</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="featureSubTitle ">
+                <h3> Recent Admin and Staff accounts added</h3>
+                <button class="newAccBtn " onclick="window.location.href='./adminCreateAcc.html' ">New Staff/Admin</button>
+                <button class="viewAll " onclick="window.location.href='./adminAllUser.html' ">View all</button>
+            </div>
+            <div class="transactions ">
+                <table class="transactionTable ">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Email</th>
+                            <th>first name</th>
+                            <th>Last name</th>
+                            <th>Type</th>
+                            <th>Admin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="window.location.href='./adminOneAcc.html' ">
+                            <td>475874</td>
+                            <td>email@email.com</td>
+                            <td>Olivier</td>
+                            <td>Shore</td>
+                            <td>Staff</td>
+                            <td>True</td>
+                        </tr>
+
+                        <tr onclick="window.location.href='./adminOneAcc.html' ">
+                            <td>475874</td>
+                            <td>email@email.com</td>
+                            <td>Olivier</td>
+                            <td>Shore</td>
+                            <td>Staff</td>
+                            <td>True</td>
+                        </tr>
+
+                        <tr onclick="window.location.href='./adminOneAcc.html' ">
+                            <td>475874</td>
+                            <td>email@email.com</td>
+                            <td>Olivier</td>
+                            <td>Shore</td>
+                            <td>Staff</td>
+                            <td>True</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+
+            <div class="featureSubTitle ">
+                <h3> Recent Accounts accessed </h3>
+                <button class="viewAll " onclick="window.location.href='./allBkaccs.html' ">View all transactions</button>
+            </div>
+            <div class="transactions ">
+                
+                <table class="transactionTable ">
+                    <thead>
+                        <tr>
+                            <th>Done</th>
+                            <th>Account</th>
+                            <th>Cashier</th>
+                            <th>Reason</th>
+                            <th>Type</th>
+                            <th>Current Balance ($)</th>
+                            <th>Amount ($)</th>
+                            <th>New Balance ($)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>Claude</td>
+                            <td>For saving</td>
+                            <td>Credit</td>
+                            <td>200</td>
+                            <td>5000</td>
+                            <td>5200</td>
+                        </tr>
+                        <tr>
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>Claude</td>
+                            <td>For saving</td>
+                            <td>Credit</td>
+                            <td>200</td>
+                            <td>5000</td>
+                            <td>5200</td>
+                        </tr>
+                        <tr>
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>Claude</td>
+                            <td>For saving</td>
+                            <td>Credit</td>
+                            <td>200</td>
+                            <td>5000</td>
+                            <td>5200</td>
+                        </tr>
+                        <tr>
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>Claude</td>
+                            <td>For saving</td>
+                            <td>Credit</td>
+                            <td>200</td>
+                            <td>5000</td>
+                            <td>5200</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+    </main>
+</body>
+</html>

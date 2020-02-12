@@ -1,0 +1,221 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papel - Bank account</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="title"> <a href="#">Papel</a> </div>
+
+        <div class="navg ">
+            <div class="menu ">
+                <a href="./adminAllUser.html">All accounts</a>
+            </div>
+            <div class="menu ">
+                <a href="../user/signin.html ">Sign Out</a>
+            </div>
+        </div>
+
+        <div class="account">
+            <div class="accountDrop">
+                <button id="accountDropBtn" class="accountDropBtn">John Doe</button>
+                <div class="accountElements">
+                    <a class="userBtn" href="../staff/staff.html" id="userBtn">Enter as Staff</a>
+                    <a class="signoutBtn" href="../user/signin.html" id="signoutBtn">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main ">
+
+        <div class="gridContainer ">
+            <div class="leftSide ">
+                <div class="card ">
+                    <div class="titleHeader ">
+                        <p>John Doe</p>
+                        <h5>adminname@email.com</h5>
+                        <div class="headerCard ">
+                            <img src="../../assets/man.png ">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="menuVert ">
+                    <div class="menuName ">Menu</div>
+                    <div class="navM ">
+                        <div><a href="./adminAllUser.html.html ">All accounts</a></div>
+                    </div>
+                </div>
+
+                <div class="menuVert ">
+                    <div class="menuName ">Quick Links</div>
+                    <div class="navM ">
+                        <div><a href="./adminCreateAcc.html ">Create Staff or Admin</a></div>
+                        <div><a href="./adminOneAcc.html ">Activate or Deactivate user</a></div>
+                        <div><a href="./adminOneBkAcc.html ">Delete account</a></div>
+                    </div>
+                </div>
+                <div class="menuVert ">
+                    <div class="menuName ">Settings</div>
+                    <div class="navM ">
+                        <div><a href="# ">Reset password</a></div>
+                        <div><a href="# ">Allow notification</a></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="rightSide ">
+                <div class="pageTitle">
+                    <div class="userNme">
+                        <div class="pageName ">Bank account</div>
+                    </div>
+                    <div class="userStatus">
+                        <div id="userStatu" class="statu">(Active)</div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="rightContentOneTran ">
+                    <div class="cardPost " onclick="window.location.href='./adminOneBkAcc.html' ">
+                        <a href="./adminOneBkAcc.html ">
+                            <div class="cardTexts ">
+                                <div class="cardTitle "> <a href="./adminOneBkAcc.html ">John Doe</a></div>
+                                <div class="cardDesc "> <a href="./adminOneBkAcc.html ">4568 5557 5754 7515</a></div>
+                                <div class="cardMeta ">
+                                    <ul>
+                                        <li> <a>Status: <span>Active</span>  </a></li>
+                                        <li> <a>Type: <span>Savings</span>  </a></li>
+                                        <li> <a>Transactions: <span>10</span>  </a></li>
+                                        <li> <a>Balance: <span>$1400 </span></a> </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="addTra">
+                        <button id="delTran" class="delTran ">Delete</button>
+                    </div>
+                </div>
+                <div class="balanceAmt">
+                    <h3>Balance: <span>$1400 </span></h3>
+                </div>
+
+
+                <div class="featureSubTitle ">
+                    <h3> Transactions </h3>
+                </div>
+                <div class="filterRec">
+                    <div class="searchRec">
+                        <input type="text" name="inSearchRec" id="inSearchRec" placeholder="Search Account, Reason or Type of Transaction">
+                    </div>
+                </div>
+                <div class="transactions ">
+                    <table class="transactionTable ">
+                        <thead>
+                            <tr>
+                                <th>Done</th>
+                                <th>Account</th>
+                                <th>Cashier</th>
+                                <th>Reason</th>
+                                <th>Type</th>
+                                <th>Current Balance ($)</th>
+                                <th>Amount ($)</th>
+                                <th>Balance ($)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>9:00 - 25th Jan, 2020</td>
+                                <td>4562 8654 8952 2458</td>
+                                <td>Claude</td>
+                                <td>For saving</td>
+                                <td>Credit</td>
+                                <td>200</td>
+                                <td>5000</td>
+                                <td>5200</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 - 25th Jan, 2020</td>
+                                <td>4562 8654 8952 2458</td>
+                                <td>Claude</td>
+                                <td>For saving</td>
+                                <td>Credit</td>
+                                <td>200</td>
+                                <td>5000</td>
+                                <td>5200</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 - 25th Jan, 2020</td>
+                                <td>4562 8654 8952 2458</td>
+                                <td>Claude</td>
+                                <td>For saving</td>
+                                <td>Credit</td>
+                                <td>200</td>
+                                <td>5000</td>
+                                <td>5200</td>
+                            </tr>
+                            <tr>
+                                <td>9:00 - 25th Jan, 2020</td>
+                                <td>4562 8654 8952 2458</td>
+                                <td>Claude</td>
+                                <td>For saving</td>
+                                <td>Credit</td>
+                                <td>200</td>
+                                <td>5000</td>
+                                <td>5200</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div id="deleteBtn" class="deleteBtnMod">
+
+            <div class="openedMessage">
+                <span id="closeact" class="close">&times;</span>
+                <h3>Bank account deletion</h3>
+
+                <div class="cardPost ">
+                    <a href="# ">
+                        <div class="cardTexts ">
+                            <div class="cardTitle "> <a href="# ">John Doe</a></div>
+                            <div class="cardDesc "> <a href="# ">4568 5557 5754 7515</a></div>
+                            <div class="cardMeta ">
+                                <ul>
+                                    <li> <a>Status: <span>Active</span>  </a></li>
+                                    <li> <a>Type: <span>Savings</span>  </a></li>
+                                    <li> <a>Transactions: <span>10</span>  </a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="message">This Bank account has been <span>Deleted</span> </div>
+
+            </div>
+
+        </div>
+
+
+        <script src="../../js/adminDel.js"></script>
+
+</body>
+
+</html>

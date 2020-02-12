@@ -1,0 +1,134 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papel - Users' list</title>
+    <link rel="stylesheet" href="../../css/style.css" "
+</head>
+<body>
+    <header>
+        <div class="title "> <a href="# ">Papel</a> </div>
+        
+
+        <div class="account ">
+            <div class="navg ">
+                <div class="menu ">
+                    <a href="./adminCreateAcc.html ">Create staff</a>
+                </div>
+                <div class="menu ">
+                    <a href="../user/signin.html ">Sign Out</a>
+                </div>
+            </div>
+            <div class="accountDrop ">
+                <button id="accountDropBtn " class="accountDropBtn ">John Doe</button>
+                <div class="accountElements ">
+                    <a class="userBtn " href="../staff/staff.html " id="userBtn ">Enter as Staff</a>
+                    <a class="signoutBtn " href="../user/signin.html " id="signoutBtn ">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main ">
+        
+    <div class="gridContainer ">
+        <div class="leftSide ">
+            <div class="card ">
+                <div class="titleHeader ">
+                    <p>John Doe</p>
+                    <h5>johndoe@gmail.com</h5>
+                    <div class="headerCard ">
+                        <img src="../../assets/man.png ">
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="menuVert ">
+                <div class="menuName ">Menu</div>
+                <div class="navM ">
+                    <div><a href="./adminAllUser.html ">All accounts</a></div>
+                </div>
+            </div>
+            
+            <div class="menuVert ">
+                <div class="menuName ">Quick Links</div>
+                <div class="navM ">
+                    <div><a href="./adminCreateAcc.html ">Create Staff or Admin</a></div>
+                    <div><a href="./adminOneAcc.html ">Activate or Deactivate user</a></div>
+                    <div><a href="./adminOneBkAcc.html ">Delete account</a></div>
+                </div>
+            </div>
+            <div class="menuVert ">
+                <div class="menuName ">Settings</div>
+                <div class="navM ">
+                    <div><a href="# ">Reset password</a></div>
+                    <div><a href="# ">Allow notification</a></div>
+                 </div>
+            </div>
+
+        </div>
+        <div class="rightSide ">
+            <div class="pageName ">List of all user accounts</div>
+            <div class="filterRec ">
+                <div class="searchRec ">
+                    <input type="text " name="inSearchRec " id="inSearchRec " placeholder="Search Account, Owner or Type of account ">
+                </div>
+            </div>
+            <div class="transactions ">
+
+
+                <table class="transactionTable ">
+                    <thead>
+                        <tr>
+                            <th>Created on</th>
+                            <th>Account</th>
+                            <th>Owner</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="window.location.href='./adminOneAcc.html' ">
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>1256</td>
+                            <td>Savings</td>
+                            <td>Active</td>
+                            <td>5000</td>
+                        </tr>
+                        <tr onclick="window.location.href='./adminOneAcc.html' ">
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>1256</td>
+                            <td>Savings</td>
+                            <td>Active</td>
+                            <td>5000</td>
+                        </tr>
+                        <tr onclick="window.location.href='./adminOneAcc.html' ">
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>1256</td>
+                            <td>Savings</td>
+                            <td>Active</td>
+                            <td>5000</td>
+                        </tr>
+                        <tr onclick="window.location.href='./adminOneAcc.html' ">
+                            <td>9:00 - 25th Jan, 2020</td>
+                            <td>4562 8654 8952 2458</td>
+                            <td>1256</td>
+                            <td>Savings</td>
+                            <td>Active</td>
+                            <td>5000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>
+</body>
+
+</html>
