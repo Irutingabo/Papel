@@ -1,9 +1,26 @@
-let actBtn = document.getElementById("actBtn");
+const element = id => document.getElementById(id)
 
-let closeAct = document.getElementById("closeAct");
-let activate = document.getElementById("activate");
+// Activating user (Elements)
+let actBtn = element("actBtn");
+let closeAct = element("closeAct");
+let activate = element("activate");
 let status = document.getElementsByClassName('statu')[0]
 
+
+// Deactivating User (Elements)
+let deactBtn = element("deactBtn");
+let closeDeact = element("closeDeact");
+let deActivate = element("deActivate");
+
+// Deactivating user (Events)
+deactBtn.onclick = () => {
+    deActivate.style.display = "block";
+    status.style.color = "#e42e0d"
+    status.innerHTML = "(Inactive)"
+}
+closeDeact.onclick = () => deActivate.style.display = "none";
+
+// Activating user (Events)
 actBtn.onclick = () => {
     activate.style.display = "block";
     status.style.color = "#16C39A"
@@ -13,20 +30,7 @@ closeAct.onclick = () => activate.style.display = "none";
 
 
 
-let deactBtn = document.getElementById("deactBtn");
-let closeDeact = document.getElementById("closeDeact");
-let deActivate = document.getElementById("deActivate");
-
-deactBtn.onclick = () => {
-    deActivate.style.display = "block";
-    status.style.color = "#e42e0d"
-    status.innerHTML = "(Inactive)"
-}
-
-closeDeact.onclick = () => deActivate.style.display = "none";
-
-
-
+// Closing windows (Events)
 window.onclick = event => {
     if (event.target == deActivate || event.target == activate) {
         deActivate.style.display = "none";
