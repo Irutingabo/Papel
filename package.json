@@ -1,0 +1,19 @@
+{
+  "name": "papel",
+  "version": "1.0.0",
+  "description": "Papel is a light-weight core banking application that powers banking operations like account creation, customer deposits, and withdrawals.",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Irutingabo/Papel.git"
+  },
+  "author": "Shama IRUTINGABO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Irutingabo/Papel/issues"
+  },
+  "homepage": "https://github.com/Irutingabo/Papel#readme"
+}
