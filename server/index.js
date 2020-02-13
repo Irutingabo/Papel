@@ -14,7 +14,7 @@ app.use('/', (req, res) => {
         status: 'ok',
         message: 'You reached home on Papel',
     });
-    console.log('Successful');
 });
 
+// eslint-disable-next-line no-console
 app.listen(config.port, () => console.log(`server is live and ready on: ${config.port}`));

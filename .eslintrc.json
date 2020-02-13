@@ -15,7 +15,7 @@
         "sourceType": "module"
     },
     "rules": {
-        "no-console":"off",
+        "no-console":"error",
         "linebreak-style":["warn", "windows"],
         "indent":"off",
         "eol-last":"off"
