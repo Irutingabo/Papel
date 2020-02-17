@@ -1,7 +1,4 @@
-[![Build Status](https://travis-ci.com/Irutingabo/Papel.svg?branch=develop)](https://travis-ci.com/Irutingabo/Papel)
-
-
-[![Coverage Status](https://coveralls.io/repos/github/Irutingabo/Papel/badge.svg?branch=develop)](https://coveralls.io/github/Irutingabo/Papel?branch=develop)
+[![Build Status](https://travis-ci.com/Irutingabo/Papel.svg?branch=develop)](https://travis-ci.com/Irutingabo/Papel)  [![Coverage Status](https://coveralls.io/repos/github/Irutingabo/Papel/badge.svg?branch=develop)](https://coveralls.io/github/Irutingabo/Papel?branch=develop)
 
 
 
