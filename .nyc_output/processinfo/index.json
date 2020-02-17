@@ -1,1 +1,0 @@
-{"processes":{"9b708767-3445-4cc8-8578-fac1478b09bc":{"parent":null,"children":["e979861c-924b-43fb-ae7f-18ab75ab1dd2"]},"e979861c-924b-43fb-ae7f-18ab75ab1dd2":{"parent":"9b708767-3445-4cc8-8578-fac1478b09bc","children":[]}},"files":{"/home/shama/Codes2020/ADC/Papel/server/models/user.model.js":["e979861c-924b-43fb-ae7f-18ab75ab1dd2"]},"externalIds":{}}
