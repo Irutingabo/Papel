@@ -1,8 +1,8 @@
-import {query} from './config/config'
+import { query } from './config/config'
 
-const createTable = () => {
+export const createTable = () => {
     const createTable = `
-    CREATE TABLE users (
+    CREATE TABLE IF NOT EXISTS users (
       userId serial PRIMARY KEY,
       email text NOT NULL,
       username text,
@@ -15,6 +15,9 @@ const createTable = () => {
     );
     `
     query(createTable)
-  }
+}
 
-  export default createTable;
+export const truncateTable = () => {
+    const truncateTable = 'TRUNCATE TABLE users CASCADE'
+    query(truncateTable)
+}

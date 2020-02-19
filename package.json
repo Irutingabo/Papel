@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint server/*",
     "start": "nodemon --exec babel-node server/index",
-    "test": "mocha  --reporter spec --require @babel/register server/**/*.test.js --exit",
+    "test": "env NODE_ENV=test mocha  --reporter spec --require @babel/register server/**/*.test.js --exit",
     "coverage": "nyc --reporter=html --report=text npm run test",
     "coverage:show": "nyc npm run test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
