@@ -10,4 +10,6 @@ const pool = new Pool({
   port: 5432,
 })
 
+
+
 export function query(text, params) { return pool.query(text, params) }
