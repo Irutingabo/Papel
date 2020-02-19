@@ -20,8 +20,8 @@ before_install:
 
 before_script:
   - psql -c "CREATE DATABASE papeldb;" -U postgres
-  - psql -c "CREATE USER shamiru WITH PASSWORD '0002';" -U postgres
   - psql -c "CREATE TABLE users (userId serial PRIMARY KEY,email text NOT NULL,username text,firstName text,lastName text,type text,isAdmin boolean,password text, createdAt text);"
+  - psql -c "CREATE USER shamiru WITH PASSWORD '0002';" -U postgres
 
 script:
   - npm run coverage
