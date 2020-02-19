@@ -1,4 +1,4 @@
-import argon2 from 'argon2'
+import bcrypt from 'bcrypt'
 import {query} from '../config/config'
 import User from '../models/user.model'
 
@@ -8,7 +8,9 @@ import User from '../models/user.model'
         
        
         if (rows[0] == undefined){
-            const hashed = await argon2.hash(req.body.password)
+            const saltRounds = process.env.SALT_ROUNDS            
+            const hashed = bcrypt.hash(req.body.password, saltRounds, (err, hash) => hash)
+            
             const nUser = new User({
                 username: req.body.username,
                 firstName: req.body.firstName,

@@ -1,4 +1,3 @@
-// const Joi = require('@hapi/joi')
 import Joi from '@hapi/joi'
 
 const validateSignUpData = (req, res, next) => {
@@ -27,4 +26,4 @@ const validateSignUpData = (req, res, next) => {
 }
 
 
-module.exports = { validateSignUpData }
+export { validateSignUpData }
