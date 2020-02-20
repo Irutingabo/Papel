@@ -5,10 +5,11 @@ should();
 
 
 
+describe('Sign Up Endpoint,', () => {
 
 // Testing user sign up
 describe('api/v1/signup', () => {
-  let user1 = {
+  const user1 = {
     "username": "claude",
     "firstName": "Rema",
     "lastName": "claude",
@@ -33,7 +34,7 @@ describe('api/v1/signup', () => {
 
 // Testing user sign up with no email
 describe('api/v1/signup', () => {
-  let user2 = {
+  const user2 = {
     "username": "dumebi",
     "firstName": "dumba",
     "lastName": "ebikwa",
@@ -57,6 +58,60 @@ describe('api/v1/signup', () => {
       });
   });
 });
+
+})
+
+
+
+describe('Sign In Endpoint,', () => {
+
+
+
+
+  // Testing user sign in
+  describe('/api/v1/signup', () => {
+    const user2 = {
+      "email": "irushajj@gmail.com",
+      "password": "passwordq"
+    }
+    it('User signing in does not exist', (done) => {
+      request(app)
+        .post('/api/v1/signin')
+        .send(user2)
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(404)
+        .end((err) => {
+          if (err) return done(err);
+          done();
+        });
+    });
+  });
+
+   // Testing user signing in with no valid data
+   describe('/api/v1/signin', () => {
+    const user2 = {
+      "email": "irushajjgmail.com",
+      "password": "passwordq"
+    }
+    it('User signing in with no valid data', (done) => {
+      request(app)
+        .post('/api/v1/signin')
+        .send(user2)
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(400)
+        .end((err, res) => {
+          res.body.should.be.a('object')
+          res.body.should.have.property('status')
+          res.body.should.have.property('error')
+          res.body.status.should.equal('400')
+          done();
+        });
+    });
+  });
+})
+
 
 
 

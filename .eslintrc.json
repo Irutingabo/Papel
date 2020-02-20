@@ -16,9 +16,9 @@
     },
     "rules": {
         "no-console":"error",
-        "linebreak-style":["warn", "windows"],
+        "linebreak-style":["off", "windows"],
         "indent":"off",
         "eol-last":"off",
-        "eslint":"recommended"
+        "semi":"off"
     }
 }
