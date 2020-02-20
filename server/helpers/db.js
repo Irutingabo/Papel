@@ -1,4 +1,4 @@
-import { query } from './config/config'
+import { query } from '../config/config'
 
 export const createTable = () => {
     const createTable = `

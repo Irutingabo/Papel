@@ -1,6 +1,6 @@
 require('dotenv').config();
 import express from 'express'
-import {createTable, truncateTable} from './db'
+import {createTable, truncateTable} from './helpers/db'
 
 let PORT = process.env.PORT || 4000
 import routes from './routes/index.routes'

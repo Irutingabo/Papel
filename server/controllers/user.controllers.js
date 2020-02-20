@@ -3,33 +3,31 @@ import {query} from '../config/config'
 import User from '../models/user.model'
 
     const signUp = async (req, res) => {
-        const userEmail = req.body.email
-        const { rows } = await query('SELECT * FROM users WHERE email = $1', [userEmail])
-        
+        const {email,username, firstName, lastName, password} = req.body
+        const { rows } = await query('SELECT * FROM users WHERE email = $1', [email])
+    
        
         if (rows[0] == undefined){
-            const saltRounds = process.env.SALT_ROUNDS            
-            const hashed = bcrypt.hash(req.body.password, saltRounds, (err, hash) => hash)
+            const hashed = await bcrypt.hash(password, 10)
             
             const nUser = new User({
-                username: req.body.username,
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                email: req.body.email,
+                username,
+                firstName,
+                lastName,
+                email,
                 password: hashed,
             })
 
             // Save and display user
             await query('INSERT INTO users (email, username, firstName, lastName, password, type, isAdmin, createdAt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', Object.values(nUser))
-            res.status(201).send({
+            return res.status(201).send({
                 status: 201,
                 message: 'User created successfully',
                 data: nUser
             });
-            return nUser
             
         } else if (rows)
-        return res.status(303).send({ status: 303,  error: 'The user exists'})
+        return res.status(400).send({ status: 400,  error: 'The user exists'})
     };
 
 export { signUp }
