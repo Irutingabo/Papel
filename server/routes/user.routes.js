@@ -1,11 +1,14 @@
-import { validateSignUpData, validateSignInData } from '../middlewares/validation'
-import { signUp , signIn } from '../controllers/user.controllers'
+import {
+  validateSignUpData,
+  validateSignInData
+} from "../middlewares/validation";
+import { signUp, signIn, getAllUsers} from "../controllers/user.controllers";
+import { verify, verifyStaff, verifyAdmin } from '../middlewares/verifyToken'
 
-export default function (router) {
-    router.route('/signup')
-        .post(validateSignUpData, signUp)
+export default function(router) {
+  router.route("/signup").post(validateSignUpData, signUp);
 
-    router.route('/signin')
-        .post(validateSignInData, signIn)
+  router.route("/signin").post(validateSignInData, signIn);
 
+  router.route("/users").get(verifyStaff, getAllUsers);
 }

@@ -94,4 +94,20 @@ const signIn = async (req, res) => {
     })
 };
 
-export { signUp, signIn }
+
+const getAllUsers = async (req, res) => {
+    const { rows } = await query("SELECT * FROM users");
+  
+    if (rows !== "") {
+      return res.status(200).send({
+        status: "200",
+        data: rows
+      });
+    }
+    return res.status(404).send({
+      status: 404,
+      error: "No User found"
+    });
+  };
+
+export { signUp, signIn, getAllUsers }
