@@ -55,7 +55,31 @@ const getOneAccount = async (req, res) => {
 
 };
 
+
+
+const getAccounts = async (req, res) => {
+
+    const  {status}  = req.query 
+    
+    const {rows} = (status==undefined)? await query('SELECT * FROM accounts') : await query('SELECT * FROM accounts WHERE status = $1', [status]);
+    if (rows[0]) {
+
+        res.status(200).send({
+            status: "200",
+            message: "Accounts successfully retrieved!",
+            data: rows
+        })
+    } else {
+        return res.status(404).send({
+            status: 404,
+            error: "No account found"
+        })
+    }
+
+};
+
 export {
     createAccount,
-    getOneAccount
+    getOneAccount,
+    getAccounts
 }
