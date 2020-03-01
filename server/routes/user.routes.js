@@ -2,8 +2,8 @@ import {
   validateSignUpData,
   validateSignInData
 } from "../middlewares/validation";
-import { signUp, signIn, getAllUsers} from "../controllers/user.controllers";
-import { verify, verifyStaff, verifyAdmin } from '../middlewares/verifyToken'
+import { signUp, signIn, getAllUsers, toggleAccounttype } from "../controllers/user.controllers";
+import { verify, verifyStaff, verifyAdmin } from "../middlewares/verifyToken";
 
 export default function(router) {
   router.route("/signup").post(validateSignUpData, signUp);
@@ -11,4 +11,8 @@ export default function(router) {
   router.route("/signin").post(validateSignInData, signIn);
 
   router.route("/users").get(verifyStaff, getAllUsers);
+
+  router
+    .route("/users/:emailId/switchrole")
+    .patch(verifyAdmin, toggleAccounttype);
 }
