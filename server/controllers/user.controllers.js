@@ -110,4 +110,37 @@ const getAllUsers = async (req, res) => {
     });
   };
 
-export { signUp, signIn, getAllUsers }
+
+  
+const toggleAccounttype = async (req, res) => {
+    const emailId = req.params.emailId;
+  
+    const { rows } = await query("SELECT * FROM users WHERE email = $1", [
+      emailId
+    ]);
+  
+    if (rows[0]) {
+      const newtype =
+        rows[0].type == "user" || rows[0].type == "staff" ? "admin" : "staff";
+  
+      await query(`UPDATE users SET type=$1 WHERE email=$2`, [newtype, emailId]);
+  
+      const printOu = [
+        {
+          Account: req.params.emailId,
+          message: `type updated successfully! your account is now: ${newtype}`
+        }
+      ];
+      res.status(200).send({
+        status: "200",
+        data: printOu
+      });
+    } else {
+      return res.status(404).send({
+        status: 404,
+        error: "No such account found"
+      });
+    }
+  };
+  
+export { signUp, signIn, getAllUsers, toggleAccounttype }
