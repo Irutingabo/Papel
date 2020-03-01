@@ -1,5 +1,6 @@
 import { Pool } from 'pg'
 import dotenv from 'dotenv'
+
 dotenv.config()
 
 const pool = new Pool({
@@ -11,5 +12,4 @@ const pool = new Pool({
 })
 
 
-
-export function query(text, params) { return pool.query(text, params) }
+export const query = (text, params) => pool.query(text, params)

@@ -2,8 +2,8 @@ class User {
     constructor(args){
         this.email = args.email;
         this.username = args.username;
-        this.firstName = args.firstName;
-        this.lastName = args.lastName;
+        this.firstname = args.firstname;
+        this.lastname = args.lastname;
         this.password = args.password;
         this.type = args.type || 'user';
         this.isAdmin = args.isAdmin || false;

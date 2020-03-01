@@ -1,23 +1,23 @@
 import { query } from '../config/config'
 
 export const createTable = () => {
-    const createTable = `
+    const tableQueries = `
     CREATE TABLE IF NOT EXISTS users (
-      userId serial PRIMARY KEY,
+      userid serial PRIMARY KEY,
       email text NOT NULL,
       username text,
-      firstName text,
-      lastName text,
+      firstname text,
+      lastname text,
       type text,
       isAdmin boolean,
       password text, 
       createdAt text
     );
     `
-    query(createTable)
+    query(tableQueries)
 }
 
 export const truncateTable = () => {
-    const truncateTable = 'TRUNCATE TABLE users CASCADE'
-    query(truncateTable)
+    const tuncateusers = 'TRUNCATE TABLE users CASCADE'
+    query(tuncateusers)
 }
