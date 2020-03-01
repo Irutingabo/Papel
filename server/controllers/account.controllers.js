@@ -35,7 +35,27 @@ const createAccount = async (req, res) => {
 };
 
 
+const getOneAccount = async (req, res) => {
+
+    const accNumberID = parseInt((req.params.accNumber).replace(/[\W_]+/g, ''))
+
+
+    const { rows } = await query('SELECT * FROM accounts WHERE accountnumber = $1', [accNumberID])
+
+    if (rows[0]) {
+        return res.status(200).send({
+            status: "200",
+            data: rows[0]
+        })
+    }
+    return res.status(404).send({
+        status: 404,
+        error: "No such account found"
+    })
+
+};
 
 export {
-    createAccount
+    createAccount,
+    getOneAccount
 }
