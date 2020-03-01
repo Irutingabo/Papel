@@ -1,11 +1,11 @@
-import bcrypt from "bcrypt";
-import { query } from "../config/config";
-import User from "../models/user.model";
-import jwt from "jsonwebtoken";
+import bcrypt from 'bcrypt';
+import { query } from '../config/config';
+import User from '../models/user.model';
+import jwt from 'jsonwebtoken';
 
 const signUp = async (req, res) => {
   const { email, username, firstname, lastname, password } = req.body;
-  const { rows } = await query("SELECT * FROM users WHERE email = $1", [email]);
+  const { rows } = await query('SELECT * FROM users WHERE email = $1', [email]);
 
   if (rows[0] == undefined) {
     const hashed = await bcrypt.hash(password, 10);
@@ -20,12 +20,12 @@ const signUp = async (req, res) => {
 
     // Save and display user
     await query(
-      "INSERT INTO users (email, username, firstname, lastname, password, type, isAdmin, createdAt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+      'INSERT INTO users (email, username, firstname, lastname, password, type, isAdmin, createdAt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
       Object.values(nUser)
     );
     return res.status(201).send({
       status: 201,
-      message: "User created successfully",
+      message: 'User created successfully',
       data: {
         username,
         firstname,
@@ -34,12 +34,12 @@ const signUp = async (req, res) => {
       }
     });
   } else if (rows)
-    return res.status(400).send({ status: 400, error: "The user exists" });
+    return res.status(400).send({ status: 400, error: 'The user exists' });
 };
 
 const signIn = async (req, res) => {
   const { email, password } = req.body;
-  const { rows } = await query("SELECT * FROM users WHERE email = $1", [email]);
+  const { rows } = await query('SELECT * FROM users WHERE email = $1', [email]);
 
   if (rows[0] && rows[0] !== undefined) {
     const matched = await bcrypt.compare(password, rows[0].password);
@@ -72,7 +72,7 @@ const signIn = async (req, res) => {
       // return json response
       return res.status(200).send({
         status: 200,
-        message: "User signed in successfully",
+        message: 'User signed in successfully',
         data: {
           token: token,
           firstname,
@@ -83,60 +83,60 @@ const signIn = async (req, res) => {
     } else {
       return res.status(400).send({
         status: 400,
-        error: "Incorrect password"
+        error: 'Incorrect password'
       });
     }
   }
   return res.status(404).send({
     status: 404,
-    error: "User does not exist!"
+    error: 'User does not exist!'
   });
 };
 
 const getAllUsers = async (req, res) => {
-  const { rows } = await query("SELECT * FROM users");
+  const { rows } = await query('SELECT * FROM users');
 
-  if (rows !== "") {
+  if (rows !== '') {
     return res.status(200).send({
-      status: "200",
+      status: '200',
       data: rows
     });
   }
   return res.status(404).send({
     status: 404,
-    error: "No User found"
+    error: 'No User found'
   });
 };
 
 const getAccByUser = async (req, res) => {
   const emailId = req.params.emailId;
 
-  const { rows } = await query("SELECT * FROM accounts WHERE email = $1", [
+  const { rows } = await query('SELECT * FROM accounts WHERE email = $1', [
     emailId
   ]);
 
-  if (rows !== "") {
+  if (rows !== '') {
     return res.status(200).send({
-      status: "200",
+      status: '200',
       data: rows
     });
   }
   return res.status(404).send({
     status: 404,
-    error: "No User found"
+    error: 'No User found'
   });
 };
 
 const toggleAccounttype = async (req, res) => {
   const emailId = req.params.emailId;
 
-  const { rows } = await query("SELECT * FROM users WHERE email = $1", [
+  const { rows } = await query('SELECT * FROM users WHERE email = $1', [
     emailId
   ]);
 
   if (rows[0]) {
     const newtype =
-      rows[0].type == "user" || rows[0].type == "staff" ? "admin" : "staff";
+      rows[0].type == 'user' || rows[0].type == 'staff' ? 'admin' : 'staff';
 
     await query(`UPDATE users SET type=$1 WHERE email=$2`, [newtype, emailId]);
 
@@ -147,13 +147,13 @@ const toggleAccounttype = async (req, res) => {
       }
     ];
     res.status(200).send({
-      status: "200",
+      status: '200',
       data: printOu
     });
   } else {
     return res.status(404).send({
       status: 404,
-      error: "No such account found"
+      error: 'No such account found'
     });
   }
 };
