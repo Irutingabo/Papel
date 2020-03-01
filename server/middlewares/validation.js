@@ -3,8 +3,8 @@ import Joi from '@hapi/joi'
 const validateSignUpData = (req, res, next) => {
     const signUpSchema = Joi.object({
         username: Joi.string().alphanum().max(30).min(3),
-        firstName: Joi.string().required(),
-        lastName: Joi.string().required(),
+        firstname: Joi.string().required(),
+        lastname: Joi.string().required(),
         email: Joi.string().required().email(),
         password: Joi.string().required(),
     })

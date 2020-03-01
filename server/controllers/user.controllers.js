@@ -4,7 +4,7 @@ import User from '../models/user.model'
 import jwt from 'jsonwebtoken'
 
 const signUp = async (req, res) => {
-    const { email, username, firstName, lastName, password } = req.body
+    const { email, username, firstname, lastname, password } = req.body
     const { rows } = await query('SELECT * FROM users WHERE email = $1', [email])
 
 
@@ -13,18 +13,23 @@ const signUp = async (req, res) => {
 
         const nUser = new User({
             username,
-            firstName,
-            lastName,
+            firstname,
+            lastname,
             email,
             password: hashed,
         })
 
         // Save and display user
-        await query('INSERT INTO users (email, username, firstName, lastName, password, type, isAdmin, createdAt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', Object.values(nUser))
+        await query('INSERT INTO users (email, username, firstname, lastname, password, type, isAdmin, createdAt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', Object.values(nUser))
         return res.status(201).send({
             status: 201,
             message: 'User created successfully',
-            data: nUser
+            data: {
+                username,
+                firstname,
+                lastname,
+                email
+              }
         });
 
     } else if (rows)
@@ -41,14 +46,29 @@ const signIn = async (req, res) => {
         const matched = await bcrypt.compare(password, rows[0].password)
 
         if (matched) {
+            const {
+              email,
+              userid,
+              username,
+              firstname,
+              lastname,
+              type,
+              isAdmin
+            } = rows[0];
 
             // Create TOKEN
-            const token = jwt.sign({
-                email: rows[0].email,
-                id: rows[0].userId,
-                username: rows[0],
-                type: rows[0].type
-            }, process.env.TOKEN_SECRET)
+            const token = jwt.sign(
+                {
+                  email,
+                  userid,
+                  username,
+                  firstname,
+                  lastname,
+                  type,
+                  isAdmin
+                },
+                process.env.TOKEN_SECRET
+              );
 
             // return json response
             return res.status(200).send({
@@ -56,7 +76,9 @@ const signIn = async (req, res) => {
                 message: 'User signed in successfully',
                 data: {
                     token: token,
-                    user: rows[0]
+                    firstname,
+                    lastname,
+                    email
                 }
             })
         } else {
