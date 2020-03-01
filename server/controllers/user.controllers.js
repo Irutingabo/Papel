@@ -1,146 +1,161 @@
-import bcrypt from 'bcrypt'
-import { query } from '../config/config'
-import User from '../models/user.model'
-import jwt from 'jsonwebtoken'
+import bcrypt from "bcrypt";
+import { query } from "../config/config";
+import User from "../models/user.model";
+import jwt from "jsonwebtoken";
 
 const signUp = async (req, res) => {
-    const { email, username, firstname, lastname, password } = req.body
-    const { rows } = await query('SELECT * FROM users WHERE email = $1', [email])
+  const { email, username, firstname, lastname, password } = req.body;
+  const { rows } = await query("SELECT * FROM users WHERE email = $1", [email]);
 
+  if (rows[0] == undefined) {
+    const hashed = await bcrypt.hash(password, 10);
 
-    if (rows[0] == undefined) {
-        const hashed = await bcrypt.hash(password, 10)
+    const nUser = new User({
+      username,
+      firstname,
+      lastname,
+      email,
+      password: hashed
+    });
 
-        const nUser = new User({
-            username,
-            firstname,
-            lastname,
-            email,
-            password: hashed,
-        })
-
-        // Save and display user
-        await query('INSERT INTO users (email, username, firstname, lastname, password, type, isAdmin, createdAt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', Object.values(nUser))
-        return res.status(201).send({
-            status: 201,
-            message: 'User created successfully',
-            data: {
-                username,
-                firstname,
-                lastname,
-                email
-              }
-        });
-
-    } else if (rows)
-        return res.status(400).send({ status: 400, error: 'The user exists' })
+    // Save and display user
+    await query(
+      "INSERT INTO users (email, username, firstname, lastname, password, type, isAdmin, createdAt) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+      Object.values(nUser)
+    );
+    return res.status(201).send({
+      status: 201,
+      message: "User created successfully",
+      data: {
+        username,
+        firstname,
+        lastname,
+        email
+      }
+    });
+  } else if (rows)
+    return res.status(400).send({ status: 400, error: "The user exists" });
 };
-
 
 const signIn = async (req, res) => {
-    const { email, password } = req.body
-    const { rows } = await query('SELECT * FROM users WHERE email = $1', [email])
+  const { email, password } = req.body;
+  const { rows } = await query("SELECT * FROM users WHERE email = $1", [email]);
 
-    if (rows[0] && rows[0] !== undefined) {
+  if (rows[0] && rows[0] !== undefined) {
+    const matched = await bcrypt.compare(password, rows[0].password);
 
-        const matched = await bcrypt.compare(password, rows[0].password)
+    if (matched) {
+      const {
+        email,
+        userid,
+        username,
+        firstname,
+        lastname,
+        type,
+        isAdmin
+      } = rows[0];
 
-        if (matched) {
-            const {
-              email,
-              userid,
-              username,
-              firstname,
-              lastname,
-              type,
-              isAdmin
-            } = rows[0];
-
-            // Create TOKEN
-            const token = jwt.sign(
-                {
-                  email,
-                  userid,
-                  username,
-                  firstname,
-                  lastname,
-                  type,
-                  isAdmin
-                },
-                process.env.TOKEN_SECRET
-              );
-
-            // return json response
-            return res.status(200).send({
-                status: 200,
-                message: 'User signed in successfully',
-                data: {
-                    token: token,
-                    firstname,
-                    lastname,
-                    email
-                }
-            })
-        } else {
-            return res.status(400).send({
-                status: 400,
-                error: 'Incorrect password'
-            })
-        }
-    }
-    return res.status(404).send({
-        status: 404,
-        error: 'User does not exist!'
-    })
-};
-
-
-const getAllUsers = async (req, res) => {
-    const { rows } = await query("SELECT * FROM users");
-  
-    if (rows !== "") {
-      return res.status(200).send({
-        status: "200",
-        data: rows
-      });
-    }
-    return res.status(404).send({
-      status: 404,
-      error: "No User found"
-    });
-  };
-
-
-  
-const toggleAccounttype = async (req, res) => {
-    const emailId = req.params.emailId;
-  
-    const { rows } = await query("SELECT * FROM users WHERE email = $1", [
-      emailId
-    ]);
-  
-    if (rows[0]) {
-      const newtype =
-        rows[0].type == "user" || rows[0].type == "staff" ? "admin" : "staff";
-  
-      await query(`UPDATE users SET type=$1 WHERE email=$2`, [newtype, emailId]);
-  
-      const printOu = [
+      // Create TOKEN
+      const token = jwt.sign(
         {
-          Account: req.params.emailId,
-          message: `type updated successfully! your account is now: ${newtype}`
+          email,
+          userid,
+          username,
+          firstname,
+          lastname,
+          type,
+          isAdmin
+        },
+        process.env.TOKEN_SECRET
+      );
+
+      // return json response
+      return res.status(200).send({
+        status: 200,
+        message: "User signed in successfully",
+        data: {
+          token: token,
+          firstname,
+          lastname,
+          email
         }
-      ];
-      res.status(200).send({
-        status: "200",
-        data: printOu
       });
     } else {
-      return res.status(404).send({
-        status: 404,
-        error: "No such account found"
+      return res.status(400).send({
+        status: 400,
+        error: "Incorrect password"
       });
     }
-  };
-  
-export { signUp, signIn, getAllUsers, toggleAccounttype }
+  }
+  return res.status(404).send({
+    status: 404,
+    error: "User does not exist!"
+  });
+};
+
+const getAllUsers = async (req, res) => {
+  const { rows } = await query("SELECT * FROM users");
+
+  if (rows !== "") {
+    return res.status(200).send({
+      status: "200",
+      data: rows
+    });
+  }
+  return res.status(404).send({
+    status: 404,
+    error: "No User found"
+  });
+};
+
+const getAccByUser = async (req, res) => {
+  const emailId = req.params.emailId;
+
+  const { rows } = await query("SELECT * FROM accounts WHERE email = $1", [
+    emailId
+  ]);
+
+  if (rows !== "") {
+    return res.status(200).send({
+      status: "200",
+      data: rows
+    });
+  }
+  return res.status(404).send({
+    status: 404,
+    error: "No User found"
+  });
+};
+
+const toggleAccounttype = async (req, res) => {
+  const emailId = req.params.emailId;
+
+  const { rows } = await query("SELECT * FROM users WHERE email = $1", [
+    emailId
+  ]);
+
+  if (rows[0]) {
+    const newtype =
+      rows[0].type == "user" || rows[0].type == "staff" ? "admin" : "staff";
+
+    await query(`UPDATE users SET type=$1 WHERE email=$2`, [newtype, emailId]);
+
+    const printOu = [
+      {
+        Account: req.params.emailId,
+        message: `type updated successfully! your account is now: ${newtype}`
+      }
+    ];
+    res.status(200).send({
+      status: "200",
+      data: printOu
+    });
+  } else {
+    return res.status(404).send({
+      status: 404,
+      error: "No such account found"
+    });
+  }
+};
+
+export { signUp, signIn, getAllUsers, getAccByUser, toggleAccounttype };
