@@ -3,6 +3,7 @@ import { should } from 'chai'
 import { assert } from 'chai';
 import User from '../models/user.model';
 import Account from '../models/account.model';
+import Transaction from '../models/transaction.model';
 should()
 
 describe('Models', () => {
@@ -59,7 +60,6 @@ describe('Models', () => {
         });
     });
 
-
     describe('Account', () => {
         let anAccount;
 
@@ -107,5 +107,55 @@ describe('Models', () => {
         });
     });
 
+    describe('Transaction', () => {
+        let aTransaction;
+
+        before(() => {
+            aTransaction = new Transaction({
+                username: 'shama',
+                transactionType: "Savings",
+                accountnumber: "Savings",
+                cashier: 'Draft',
+                amount: 'Draft',
+                oldBalance: 0,
+                newBalance: 0,
+                createdOn: '2020-02-18T23:27:53.427+02:00'
+            });
+        });
+
+        describe('Defaults', () => {
+
+            it('has a valid user name', () => {
+                assert(aTransaction.username, 'valid user name is missing');
+            });
+
+            it('has a valid transaction type', () => {
+                assert.equal(aTransaction.transactionType, 'Savings', 'valid transaction type is missing');
+            });
+
+            it('has a valid account number', () => {
+                assert(aTransaction.accountnumber, 'valid account number is missing');
+            });
+
+            it('has a valid cashier', () => {
+                assert(aTransaction.cashier, 'valid cashier is missing');
+            });
+            it('has a valid amount', () => {
+                assert(aTransaction.amount, 'valid amount is missing');
+            });
+
+            it('has a valid old balance', () => {
+                aTransaction.oldBalance.should.not.be.undefined;
+            });
+
+            it('has a valid new balance', () => {
+                aTransaction.newBalance.should.not.be.undefined;
+            });
+
+            it('has when is created on', () => {
+                aTransaction.createdOn.should.not.be.undefined;
+            });
+        });
+    });
 
 })

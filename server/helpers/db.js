@@ -1,7 +1,7 @@
-import { query } from '../config/config';
+import { query } from '../config/config'
 
 export const createTable = () => {
-  const tableQueries = `
+    const tableQueries = `
     CREATE TABLE IF NOT EXISTS users (
       userid serial PRIMARY KEY,
       email text NOT NULL,
@@ -13,9 +13,9 @@ export const createTable = () => {
       password text, 
       createdAt text
     );
-    `;
+    `
 
-  const tableAccount = `
+    const tableAccount = `
     CREATE TABLE IF NOT EXISTS accounts (
       accountId serial PRIMARY KEY,
       username text,
@@ -27,17 +27,36 @@ export const createTable = () => {
       balance float,
       createdOn text
     );
-    `;
+    `
 
-  query(tableQueries);
-  query(tableAccount);
-};
+    const tableTransactions = `
+    CREATE TABLE IF NOT EXISTS transactions (
+      transactionId serial PRIMARY KEY,
+      username text,
+      transactionType text,
+      accountnumber text,
+      cashier text,
+      amount float,
+      oldBalance float,
+      newBalance float,
+      createdOn text
+    );
+    `
+    
+    query(tableQueries)
+    query(tableAccount)
+    query(tableTransactions)
+
+}
 
 export const truncateTable = () => {
-  const tuncateusers = 'TRUNCATE TABLE users CASCADE';
-  const tuncateaccounts = 'TRUNCATE TABLE accounts CASCADE';
-
-  query(tuncateusers);
+  const tuncateusers = 'TRUNCATE TABLE users CASCADE'
+  
+  const tuncateaccounts = 'TRUNCATE TABLE accounts CASCADE'
+  
+  const tuncatetransactions = 'TRUNCATE TABLE transactions CASCADE'
+  
+  query(tuncateusers)
   query(tuncateaccounts)
-
-};
+  query(tuncatetransactions)
+}
