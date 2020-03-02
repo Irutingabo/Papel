@@ -1,21 +1,42 @@
-import { query } from "../config/config";
-import Transaction from "../models/transaction.model";
-import jwt from "jsonwebtoken";
+import { query } from '../config/config';
+import Transaction from '../models/transaction.model';
+import jwt from 'jsonwebtoken';
 
 
 const getAllTransactions = async (req, res) => {
-  const { rows } = await query("SELECT * FROM transactions");
+  const { rows } = await query('SELECT * FROM transactions');
 
-  if (rows !== "") {
+  if (rows !== '') {
     return res.status(200).send({
-      status: "200",
-      message: "transactions successfully retrieved!",
+      status: '200',
+      message: 'transactions successfully retrieved!',
       data: rows
     });
   }
   return res.status(404).send({
     status: 404,
-    error: "No Transaction found"
+    error: 'No Transaction found'
+  });
+};
+
+
+const getOneTransaction = async (req, res) => {
+  const traNumber = parseInt(req.params.traNumber);
+
+  const {rows} = await query('SELECT * FROM transactions WHERE transactionId = $1', [
+    traNumber
+  ]);
+
+  if (rows[0]) {
+    return res.status(200).send({
+      status: '200',
+      message: 'transaction successfully retrieved!',
+      data: rows[0]
+    });
+  }
+  return res.status(404).send({
+    status: 404,
+    error: 'No such transaction found'
   });
 };
 
@@ -25,11 +46,11 @@ const creditAccount = async (req, res) => {
   const { amount } = value;
   const cashier = req.user.username;
 
-  const accNumberID = parseInt(req.params.accNumber.replace(/[\W_]+/g, ""));
+  const accNumberID = parseInt(req.params.accNumber.replace(/[\W_]+/g, ''));
 
   const {
     rows
-  } = await query("SELECT * FROM accounts WHERE accountnumber = $1", [
+  } = await query('SELECT * FROM accounts WHERE accountnumber = $1', [
     accNumberID
   ]);
 
@@ -38,7 +59,7 @@ const creditAccount = async (req, res) => {
 
     const aTransaction = new Transaction({
       username,
-      transactionType: "Credit",
+      transactionType: 'Credit',
       accountnumber,
       cashier,
       amount,
@@ -60,8 +81,8 @@ const creditAccount = async (req, res) => {
     );
 
     const printOu = {
-      status: "200",
-      message: "An account credited successfully",
+      status: '200',
+      message: 'An account credited successfully',
       data: aTransaction
     };
 
@@ -69,7 +90,7 @@ const creditAccount = async (req, res) => {
   }
   return res.status(404).send({
     status: 404,
-    error: "No such account found"
+    error: 'No such account found'
   });
 };
 
@@ -79,11 +100,11 @@ const debitAccount = async (req, res) => {
   const { amount } = value;
   const cashier = req.user.username;
 
-  const accNumberID = parseInt(req.params.accNumber.replace(/[\W_]+/g, ""));
+  const accNumberID = parseInt(req.params.accNumber.replace(/[\W_]+/g, ''));
 
   const {
     rows
-  } = await query("SELECT * FROM accounts WHERE accountnumber = $1", [
+  } = await query('SELECT * FROM accounts WHERE accountnumber = $1', [
     accNumberID
   ]);
 
@@ -92,7 +113,7 @@ const debitAccount = async (req, res) => {
 
     const aTransaction = new Transaction({
       username,
-      transactionType: "Debit",
+      transactionType: 'Debit',
       accountnumber,
       cashier,
       amount,
@@ -115,8 +136,8 @@ const debitAccount = async (req, res) => {
     );
 
     const printOu = {
-      status: "200",
-      message: "An account debited successfully",
+      status: '200',
+      message: 'An account debited successfully',
       data: aTransaction
     };
 
@@ -124,10 +145,10 @@ const debitAccount = async (req, res) => {
   }
   return res.status(404).send({
     status: 404,
-    error: "No such account found"
+    error: 'No such account found'
   });
 };
 
 
 
-export { creditAccount, debitAccount, getAllTransactions };
+export { creditAccount, debitAccount, getAllTransactions, getOneTransaction };
