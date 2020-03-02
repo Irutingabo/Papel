@@ -110,7 +110,6 @@ const toggleAccountStatus = async (req, res) => {
 };
 
 
-
 const deleteOneAccount = async (req, res) => {
 
     const accNumberID = parseInt((req.params.accNumber).replace(/[\W_]+/g, ''))
@@ -123,18 +122,39 @@ const deleteOneAccount = async (req, res) => {
 
         const printOu = [{
             id: req.params.accNumberID,
-            message: "Account deleted successfully!",
+            message: 'Account deleted successfully!',
         }]
         res.status(200).send({
-            status: "200",
+            status: '200',
             data: printOu
         })
     } else {
         return res.status(404).send({
             status: 404,
-            error: "No such account found"
+            error: 'No such account found'
         })
     }
+
+};
+
+
+const getOneAccountTransactions = async (req, res) => {
+
+    
+    const accNumberID = parseInt((req.params.accNumber).replace(/[\W_]+/g, ''))
+
+    const { rows } = await query('SELECT * FROM transactions WHERE accountnumber = $1', [accNumberID])
+
+    if (rows[0]) {
+        return res.status(200).send({
+            status: '200',
+            data: rows[0]
+        })
+    }
+    return res.status(404).send({
+        status: 404,
+        error: 'No such transactions found'
+    })
 
 };
 
@@ -143,5 +163,6 @@ export {
     getOneAccount,
     getAccounts,
     toggleAccountStatus,
-    deleteOneAccount
+    deleteOneAccount,
+    getOneAccountTransactions
 }
