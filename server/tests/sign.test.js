@@ -72,9 +72,9 @@ describe('Sign Up Endpoint,', () => {
 describe('Sign In Endpoint,', () => {
 
   // Testing user sign in
-  describe('/api/v1/signup', () => {
+  describe('/api/v1/signin', () => {
     const user2 = {
-      "email": "irushajj@gmail.com",
+      "email": "irus@gmail.com",
       "password": "passwordq"
     }
     it('User signing in does not exist', (done) => {

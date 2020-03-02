@@ -1,5 +1,5 @@
 import { verify, verifyStaff } from '../middlewares/verifyToken'
-import { creditAccount } from '../controllers/transaction.controllers'
+import { creditAccount, debitAccount } from '../controllers/transaction.controllers'
 
 export default function (router) {
 
@@ -7,5 +7,8 @@ export default function (router) {
         .post(verifyStaff, creditAccount)
         
         
-
+        router.route('/transactions/:accNumber/debit')
+                .post(verifyStaff, debitAccount)
+                
+                
 }
