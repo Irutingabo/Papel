@@ -2,6 +2,24 @@ import { query } from "../config/config";
 import Transaction from "../models/transaction.model";
 import jwt from "jsonwebtoken";
 
+
+const getAllTransactions = async (req, res) => {
+  const { rows } = await query("SELECT * FROM transactions");
+
+  if (rows !== "") {
+    return res.status(200).send({
+      status: "200",
+      message: "transactions successfully retrieved!",
+      data: rows
+    });
+  }
+  return res.status(404).send({
+    status: 404,
+    error: "No Transaction found"
+  });
+};
+
+
 const creditAccount = async (req, res) => {
   const value = req.body;
   const { amount } = value;
@@ -112,4 +130,4 @@ const debitAccount = async (req, res) => {
 
 
 
-export { creditAccount, debitAccount };
+export { creditAccount, debitAccount, getAllTransactions };
