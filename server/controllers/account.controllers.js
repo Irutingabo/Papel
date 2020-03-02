@@ -78,7 +78,6 @@ const getOneAccount = async (req, res) => {
 };
 
 
-
 const toggleAccountStatus = async (req, res) => {
 
     const accNumberID = parseInt((req.params.accNumber).replace(/[\W_]+/g, ''))
@@ -111,9 +110,38 @@ const toggleAccountStatus = async (req, res) => {
 };
 
 
+
+const deleteOneAccount = async (req, res) => {
+
+    const accNumberID = parseInt((req.params.accNumber).replace(/[\W_]+/g, ''))
+
+    const { rows } = await query('SELECT * FROM accounts WHERE accountnumber = $1', [accNumberID])
+
+    if (rows[0]) {
+
+        await query(`DELETE FROM accounts WHERE accountnumber=$1`, [accNumberID]) 
+
+        const printOu = [{
+            id: req.params.accNumberID,
+            message: "Account deleted successfully!",
+        }]
+        res.status(200).send({
+            status: "200",
+            data: printOu
+        })
+    } else {
+        return res.status(404).send({
+            status: 404,
+            error: "No such account found"
+        })
+    }
+
+};
+
 export {
     createAccount,
     getOneAccount,
     getAccounts,
-    toggleAccountStatus
+    toggleAccountStatus,
+    deleteOneAccount
 }
