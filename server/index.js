@@ -12,6 +12,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/v1', routes(router));
+app.get('/', (req, res)=>{
+    res.send({
+        "Connected": "Ok",
+        "Server": "On",
+        "Sign in first": "/api/v1/signin"
+    })
+})
 
 
 // eslint-disable-next-line no-console
