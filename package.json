@@ -37,11 +37,11 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
     "mocha": "^7.0.1",
-    "nodemon": "^2.0.2",
     "nyc": "^15.0.0",
     "supertest": "^4.0.2"
   },
   "dependencies": {
+    "nodemon": "^2.0.2",
     "@hapi/joi": "^17.1.0",
     "bcrypt": "^3.0.8",
     "dotenv": "^8.2.0",
