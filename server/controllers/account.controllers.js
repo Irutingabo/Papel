@@ -35,6 +35,28 @@ const createAccount = async (req, res) => {
 };
 
 
+const getAccounts = async (req, res) => {
+
+    const  {status}  = req.query 
+    
+    const {rows} = (status==undefined)? await query('SELECT * FROM accounts') : await query('SELECT * FROM accounts WHERE status = $1', [status]);
+    if (rows[0]) {
+
+        res.status(200).send({
+            status: '200',
+            message: 'Accounts successfully retrieved!',
+            data: rows
+        })
+    } else {
+        return res.status(404).send({
+            status: 404,
+            error: 'No account found'
+        })
+    }
+
+};
+
+
 const getOneAccount = async (req, res) => {
 
     const accNumberID = parseInt((req.params.accNumber).replace(/[\W_]+/g, ''))
@@ -44,42 +66,54 @@ const getOneAccount = async (req, res) => {
 
     if (rows[0]) {
         return res.status(200).send({
-            status: "200",
+            status: '200',
             data: rows[0]
         })
     }
     return res.status(404).send({
         status: 404,
-        error: "No such account found"
+        error: 'No such account found'
     })
 
 };
 
 
 
-const getAccounts = async (req, res) => {
+const toggleAccountStatus = async (req, res) => {
 
-    const  {status}  = req.query 
-    
-    const {rows} = (status==undefined)? await query('SELECT * FROM accounts') : await query('SELECT * FROM accounts WHERE status = $1', [status]);
+    const accNumberID = parseInt((req.params.accNumber).replace(/[\W_]+/g, ''))
+
+    const { rows } = await query('SELECT * FROM accounts WHERE accountnumber = $1', [accNumberID])
+
     if (rows[0]) {
 
+        const newStatus = (rows[0].status == 'Draft' || rows[0].status == 'Dormant') ? 'Active' : 'Dormant';
+        
+        
+        
+        await query(`UPDATE accounts SET status=$1 WHERE accountnumber=$2`,  [newStatus, accNumberID]) 
+                  
+        const printOu = [{
+            Account: req.params.accNumberID,
+            message: `Status updated successfully! your account is now ${newStatus}`,
+        }]
         res.status(200).send({
-            status: "200",
-            message: "Accounts successfully retrieved!",
-            data: rows
+            status: '200',
+            data: printOu
         })
     } else {
         return res.status(404).send({
             status: 404,
-            error: "No account found"
+            error: 'No such account found'
         })
     }
 
 };
 
+
 export {
     createAccount,
     getOneAccount,
-    getAccounts
+    getAccounts,
+    toggleAccountStatus
 }
