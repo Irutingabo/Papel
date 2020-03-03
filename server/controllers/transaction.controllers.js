@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 const getAllTransactions = async (req, res) => {
   const { rows } = await query('SELECT * FROM transactions');
 
-  if (rows !== '') {
+  if (rows[0] !== '') {
     return res.status(200).send({
       status: '200',
       message: 'transactions successfully retrieved!',

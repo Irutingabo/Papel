@@ -66,6 +66,7 @@ const getOneAccount = async (req, res) => {
 
     if (rows[0]) {
         return res.status(200).send({
+            message: `An account retrieved successfully!`,
             status: '200',
             data: rows[0]
         })
@@ -153,7 +154,7 @@ const getOneAccountTransactions = async (req, res) => {
     }
     return res.status(404).send({
         status: 404,
-        error: 'No such transactions found'
+        error: 'No transactions found'
     })
 
 };

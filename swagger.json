@@ -6,7 +6,7 @@
       "description": "Papel is a light-weight core banking application that powers banking operations like account creation, customer deposits, and withdrawals. This app is meant to support a single bank, where users can signup and create bank accounts online, but must visit the branch to withdraw or deposit money.",
       "contact": {}
     },
-    "host": "papel-io.herokuapp.com",
+    "host": "localhost:3000",
     
     "securityDefinitions": {},
     "schemes": [
@@ -26,7 +26,7 @@
           "description": "",
           "summary": "Sign up",
           "tags": [
-            "SignUp"
+            "Sign"
           ],
           "operationId": "signUp", 
           "deprecated": false,
@@ -40,34 +40,34 @@
             
             {
                 "name": "username",
-                "in": "raw",
+                "in": "formData",
                 "required": true,
                 "type": "string"
               },
               {
                 "name": "firstname",
-                "in": "raw",
+                "in": "formData",
                 "required": true,
                 "type": "string"
                 
               },
               {
                 "name": "lastname",
-                "in": "raw",
+                "in": "formData",
                 "required": true,
                 "type": "string"
                 
               },
             {
               "name": "email",
-              "in": "raw",
+              "in": "formData",
               "required": true,
               "type": "string",
               "format": "email"
             },
             {
               "name": "password",
-              "in": "raw",
+              "in": "formData",
               "required": true,
               "type": "string",
               "format":"password"
@@ -87,9 +87,9 @@
       "/api/v1/signin": {
         "post": {
           "description": "",
-          "summary": "user login",
+          "summary": "user Sign in",
           "tags": [
-            "signIn"
+            "Sign"
           ],
           "operationId": "signIn",
           "deprecated": false,
@@ -129,11 +129,11 @@
           }
         }
       },
-
-      "/accounts": {
+      
+      "/api/v1/accounts": {
         "post": {
           "description": "Creating bank account to start",
-          "summary": "user create account",
+          "summary": "User create account",
           "tags": [
             "User"
           ],
@@ -149,86 +149,412 @@
             {
               "name": "Authorization",
               "in": "header",
-              "type": "bearer",
+              "type": "string",
               "required":true
-
             },
             {
-              "name": "date",
+              "name": "accountType",
               "in": "formData",
+              "default": "Savings",
+              "enum": [
+                "Loan",
+                "Current",
+                "Savings"
+              ],
               "required": true,
-              "type": "date",
-              "format": "date"
-            },
-            {
-              "name": "type",
-              "in": "formData",
-              "required": true,
-              "type": "bearer",
-              "format": "text"
+              "type": "string"
             }
           ],
 
           "responses": {
             "200": {
-              "description": "account successfuly created"
+              "description": "An account created successfully"
             },
             "400": {
-              "description": "parameter not found or incorrect"
+              "description": "Try again with valid data"
             },
             "401": {
-              "description": "Unauthorised: You must login to proceed"
+              "description": "Unauthorised: Sign in or Create account first!"
             }
           }
-        }
-      },
+        },
 
-     "/user/{email}/accounts": {
         "get": {
           "description": "",
-          "summary": "User can view all accounts with respect to user's email",
+          "summary": "Cashier/Admin - View a list of all bank accounts​",
           "tags": [
-            "Client"
+            "Cashier"
           ],
-          "operationId": "userAccounts",
+          "operationId": "getAccounts",
           "deprecated": false,
           "produces": [
             "application/json"
           ],
           "consumes": [
-            "application/json"
+            "application/x-www-form-urlencoded"
           ],
           "parameters": [
             {
               "name": "Authorization",
               "in": "header",
-              "type": "string",
-              "required":true
-
+              "required": true,
+              "type": "string"
             }
           ],
           "responses": {
             "200": {
-              "description": "All accounts will be displayed"
+              "description": "Accounts retrieved successfully!"
             },
             "400": {
-              "description": "incorrect email"
+              "description": "No account found"
             },
             "401": {
-              "description": "Unauthorised: You must login to proceed"
+              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
             }
+            
           }
         }
       },
 
-      "/accounts/{accountNo}": {
+      "/api/v1/accounts/{accNumber}": {
         "get": {
           "description": "",
-          "summary": "user specific account",
+          "summary": "User - View a specific bank account’s details",
           "tags": [
-            "Client"
+            "User"
           ],
-          "operationId": "specificAccount",
+          "operationId": "getOneAccount",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "accNumber",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "An account retrieved successfully!"
+            },
+            "404": {
+              "description": "No such account found"
+            }
+            
+          }
+        },
+
+        "delete": {
+          "description": "",
+          "summary": "Cashier/Admin - Delete a specific bank account",
+          "tags": [
+            "Cashier"
+          ],
+          "operationId": "deleteOneAccount",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "accNumber",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Account deleted successfully!"
+            },
+            "400": {
+              "description": "No such account found"
+            },
+            "401": {
+              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
+            }
+            
+          }
+        },
+
+        "patch": {
+          "description": "",
+          "summary": "Admin - Activate or deactivate an account.",
+          "tags": [
+            "Administrator"
+          ],
+          "operationId": "toggleAccountStatus",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "accNumber",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Status updated successfully"
+            },
+            "404": {
+              "description": "No such account found"
+            },
+            "401": {
+              "description": "Unauthorised: Authorization not supplied, You must signin as Admin to proceed"
+            }
+            
+          }
+        }
+
+      },
+
+      "/api/v1/accounts/{accNumber}/transactions": {
+        "get": {
+          "description": "",
+          "summary": "User - View an account’s transaction history​",
+          "tags": [
+            "User"
+          ],
+          "operationId": "getOneAccountTransactions",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "accNumber",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "display bank account transactions"
+            },
+            "400": {
+              "description": "No such transactions found"
+            },
+            "401": {
+              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
+            }
+            
+          }
+        }
+      },
+
+
+
+      "/api/v1/users": {
+        "get": {
+          "description": "",
+          "summary": "Cashier or Admin - Get all users",
+          "tags": [
+            "Cashier"
+          ],
+          "operationId": "getAllUsers",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Returns all Users"
+            },
+            "404": {
+              "description": "No User found"
+            },
+            "401": {
+              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
+            }
+            
+          }
+        }
+      },
+
+      "/api/v1/users/{emailId}/accounts": {
+        "get": {
+          "description": "",
+          "summary": "Cashier - View all accounts owned by a specific user (client)",
+          "tags": [
+            "Cashier"
+          ],
+          "operationId": "getAccByUser",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "emailId",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "display all accounts of a given user"
+            },
+            "400": {
+              "description": "No User found"
+            },
+            "401": {
+              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
+            }
+            
+          }
+        }
+      },
+
+      "/api/v1/accounts?status=Active": {
+        "get": {
+          "description": "",
+          "summary": "Cashier/Admin - View all active bank accounts",
+          "tags": [
+            "Cashier"
+          ],
+          "operationId": "getAccounts",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Accounts retrieved successfully"
+            },
+            "400": {
+              "description": "No account found"
+            },
+            "401": {
+              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
+            }
+            
+          }
+        }
+      },
+
+      "/api/v1/accounts?status=Dormant": {
+        "get": {
+          "description": "",
+          "summary": "Cashier/Admin - View all dormant bank accounts",
+          "tags": [
+            "Cashier"
+          ],
+          "operationId": "getAccounts",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Accounts successfully retrieved!"
+            },
+            "400": {
+              "description": "No account found"
+            },
+            "401": {
+              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
+            }
+            
+          }
+        }
+      },
+
+
+      "/api/v1/transactions": {
+        "get": {
+          "description": "",
+          "summary": "Cashier - Get all transactions",
+          "tags": [
+            "Cashier"
+          ],
+          "operationId": "getAllTransactions",
           "deprecated": false,
           "produces": [
             "application/json"
@@ -259,90 +585,15 @@
         }
       },
 
-      "/accounts/{accountNo}/transactions": {
+
+      "/api/v1/transactions/3": {
         "get": {
           "description": "",
-          "summary": "All accounts transactions",
-          "tags": [
-            "Client"
-          ],
-          "operationId": "transaction",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "consumes": [
-            "application/x-www-form-urlencoded"
-          ],
-          "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "required": true,
-              "type": "string"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "View all user account's transactions"
-            },
-            "400": {
-              "description": "Account not found"
-            },
-            "401": {
-              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
-            }
-          }
-        }
-      },
-     
-      "/transactions/{transactionId}": {
-        "get": {
-          "description": "",
-          "summary": "view specific account's transaction",
-          "tags": [
-            "Client"
-          ],
-          "operationId": "transaction",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "consumes": [
-            "application/x-www-form-urlencoded"
-          ],
-
-          "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "required": true,
-              "type": "string"
-            }
-          ],
-
-          "responses": {
-            "200": {
-              "description": "display specified transaction"
-            },
-            "404": {
-              "description": "transaction not found"
-            },
-            "401": {
-              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
-            }
-           }
-          }
-      },
-
-      "/transactions/{accountNo}/debit": {
-        "post": {
-          "description": "",
-          "summary": "cashier debit",
+          "summary": "Cashier - View a specific transaction​",
           "tags": [
             "Cashier"
           ],
-          "operationId": "debitAccount",
+          "operationId": "getOneTransaction",
           "deprecated": false,
           "produces": [
             "application/json"
@@ -354,50 +605,29 @@
             {
               "name": "Authorization",
               "in": "header",
-              "type": "string",
-              "required":true
-
-            },
-            {
-              "name": "date",
-              "in": "formData",
               "required": true,
-              "type": "date",
-              "format": "date"
-            },
-            {
-              "name": "amount",
-              "in": "formData",
-              "required": true,
-              "type": "string",
-              "format": "number"
+              "type": "string"
             }
           ],
-
           "responses": {
             "200": {
-              "description": "account successfuly debited transaction email sent to the user's email"
-            },
-            "404": {
-              "description": "account not found or incorrect"
+              "description": "display specified user account"
             },
             "400": {
-              "description": "account must be active to be used or insufficient account balance"
-            },
-            "403": {
-              "description": "Forbidden only cashier can able to do this"
+              "description": "account number not found"
             },
             "401": {
-              "description": "Unauthorised: You must login to proceed"
+              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
             }
+            
           }
         }
       },
 
-      "/transactions/{accountNo}/credit": {
+      "/api/v1/transactions/{accNumber}/credit": {
         "post": {
           "description": "",
-          "summary": "cashier credit",
+          "summary": "Cashier - Credit a bank account.",
           "tags": [
             "Cashier"
           ],
@@ -413,183 +643,46 @@
             {
               "name": "Authorization",
               "in": "header",
-              "type": "string",
-              "required":true
-
+              "required": true,
+              "type": "string"
             },
             {
-              "name": "date",
-              "in": "formData",
+              "name": "accNumber",
+              "in": "path",
               "required": true,
-              "type": "date",
-              "format": "date"
+              "type": "string"
             },
             {
               "name": "amount",
               "in": "formData",
               "required": true,
-              "type": "string",
-              "format": "number"
+              "type": "number"
             }
           ],
-
           "responses": {
             "200": {
-              "description": "account successfuly credited transaction email sent to the user's email"
-            },
-            "404": {
-              "description": "account not found or incorrect"
+              "description": "An account credit successfully"
             },
             "400": {
-              "description": "account must be active to be used or insufficient account balance"
-            },
-            "403": {
-              "description": "Forbidden only cashier can able to do this"
+              "description": "No such account found"
             },
             "401": {
-              "description": "Unauthorised: You must login to proceed"
+              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
             }
-          }
-        },
-
-        "/accounts": {
-          "get": {
-            "description": "",
-            "summary": "view all accounts and sort the out",
-            "tags": [
-              "ADMIN"
-            ],
-            "operationId": "transaction",
-            "deprecated": false,
-            "produces": [
-              "application/json"
-            ],
-            "consumes": [
-              "application/x-www-form-urlencoded"
-            ],
-  
-            "parameters": [
-              {
-                "name": "Authorization",
-                "in": "header",
-                "required": true,
-                "type": "string"
-              }
-            ],
-  
-            "responses": {
-              "200": {
-                "description": "display all user accounts in the database"
-              },
-              "403": {
-                "description": "Forbidden only admin can be able to do this"
-              },
-              "401": {
-                "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
-              }
-             }
-            }
-        },
-
-      "/account/{accountNo}": {
-        "patch": {
-          "description": "",
-          "summary": "change account's status",
-          "tags": [
-            "ADMIN"
-          ],
-          "operationId": "accountStatus",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "consumes": [
-            "application/x-www-form-urlencoded"
-          ],
-          "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "required": true,
-              "type": "string"
-            },
-            {
-                "name": "status",
-                "in": "path",
-                "required": true,
-                "type": "text"
-            }
-
-          ],
-          "responses": {
-            "200": {
-              "description": "account changed to status"
-            },
-            "404": {
-              "description": "account not found"
-            },
-            "401": {
-              "description": "Not authorized, you must sign in"
-            },
-            "403": {
-              "description": "Forbidden only admin can be able to do this"
-            },
             
-            "400": {
-              "description": "status can only be ACTIVE or DORMANT"
-            }
-          }
-        }
-      },
-      
-      "/accounts/{accountNo}": {
-        "delete": {
-          "description": "",
-          "summary": "delete account number",
-          "tags": [
-            "ADMIN"
-          ],
-          "operationId": "rejected",
-          "deprecated": false,
-          "produces": [
-            "application/json"
-          ],
-          "consumes": [
-            "application/x-www-form-urlencoded"
-          ],
-          "parameters": [
-            {
-              "name": "Authorization",
-              "in": "header",
-              "required": true,
-              "type": "string"
-            }
-          ],
-          "responses": {
-            "200": {
-              "description": "account successfully deleted"
-            },
-            "404": {
-              "description": "account not found"
-            },
-            "401": {
-              "description": "Not authorized, you must sign in"
-            },
-            "403": {
-              "description": "Forbidden only admin can be able to do this"
-            }
           }
         }
       },
 
-      "/auth/create": {
+
+      "/api/v1/transactions/{accNumber}/debit": {
         "post": {
           "description": "",
-          "summary": "create a staff account",
+          "summary": "Cashier - Debit a bank account.",
           "tags": [
-            "ADMIN"
+            "Cashier"
           ],
-          "operationId": "createStaff", 
+          "operationId": "debitAccount",
           "deprecated": false,
           "produces": [
             "application/json"
@@ -598,102 +691,96 @@
             "application/x-www-form-urlencoded"
           ],
           "parameters": [
-            
             {
-              "name": "email",
-              "in": "formData",
-              "required": true,
-              "type": "string",
-              "format": "email"
-            },
-            {
-              "name": "firstName",
-              "in": "formData",
+              "name": "Authorization",
+              "in": "header",
               "required": true,
               "type": "string"
             },
             {
-              "name": "lastName",
+              "name": "accNumber",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "amount",
               "in": "formData",
               "required": true,
               "type": "string"
-              
-            },
-            {
-              "name": "password",
-              "in": "formData",
-              "required": true,
-              "type": "string",
-              "format":"password"
-            },
-            {
-              "name": "is_admin",
-              "in": "formData",
-              "required": true,
-              "type": "boolean"
             }
           ],
           "responses": {
-            "201": {
-              "description": "staff account successfuly created"
+            "200": {
+              "description": "An account debit successfully"
             },
-           "400": {
-              "description": "parameter is required"
+            "400": {
+              "description": "No such account found"
             },
-            "409": {
-              "description": "Email already exist"
+            "401": {
+              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
             }
+            
           }
-        }              
+        }
       },
 
-  
-    "definitions": {
-        "signin": {
-            "type": "object",
-            "properties": {
-                "email": {
-                    "type": "string"
-                },
-                "password": {
-                    "type": "string"
-                }
-            },
-            "xml": {
-                "name": "User"
-            }
-        },
-        
-        "signup": {
-            "type": "object",
-            "properties": {
-                "firstName": {
-                    "type": "string"
-                },
-                "lastName": {
-                    "type": "string"
-                },
-                "email": {
-                    "type": "string"
-                },
-                "password": {
-                    "type": "string"
-                }
-            },
-            "xml": {
-                "name": "User"
-            }
-        }
-    
-    },
 
-    "tags": [
-      {
-        "name": "All Endpoints",
-        "description": "all endpoints  return objects in JSON format"
+
+      "/api/v1/users/{emailId}/switchrole": {
+        "patch": {
+          "description": "",
+          "summary": "Admin - Switch user role.",
+          "tags": [
+            "Administrator"
+          ],
+          "operationId": "toggleAccounttype",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "consumes": [
+            "application/x-www-form-urlencoded"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "emailId",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "display specified user account"
+            },
+            "400": {
+              "description": "account number not found"
+            },
+            "401": {
+              "description": "Unauthorised: Authorization not supplied, You must signin to proceed"
+            }
+            
+          }
+        }
       }
-    ]
-  }
+
+
+
+
+
+
+
+
+
+
+
 }
 }
 
